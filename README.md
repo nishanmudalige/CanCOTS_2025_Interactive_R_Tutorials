@@ -1,4 +1,7 @@
-# CanCOTS 2025 - learnr Working Sub-Group
+# CanCOTS 2025 - Interactive Tutorials Working Sub-Group
+
+This repository contains WebR templates and instructions from CanCOTS 2025 in Montreal (10-12 June 2025).
+
 ---
 ## Team Members
 
@@ -11,10 +14,21 @@
 | **Participant** | [Allan Majdanac](https://github.com/majdanaca) | [![Follow @vrbiki](https://img.shields.io/badge/Follow-%40majdanaca-lightgrey?logo=github)](https://github.com/majdanaca) | Testing. |
 
 ---
-This repository contains WebR templates and instructions from CanCOTS 2025 in Montreal (10-12 June 2025).
 
-A template for a sample course can be viewed by [clicking here](https://nishanmudalige.github.io/CanCOTS_2025_Interactive_R_Tutorials/)
+## Delivarable: Sample Course (Slides, Activities, Tutorials)
 
+The deliverable for the sub-group is a skeleton of a course consisting of
+
+- A sample course landing page
+- Sample slides made in `quarto`
+- Sample interactive activities made with `learnr` and `webr`
+- Sample interactive tutorials made with `learnr`, `webr` and `gradethis`
+
+<br>
+
+A template for a sample course can be viewed by [**clicking here**](https://nishanmudalige.github.io/CanCOTS_2025_Interactive_R_Tutorials/).
+
+---
 # Prerequisites
 
 The steps below are from [https://quarto-webr.thecoatlessprofessor.com/](https://quarto-webr.thecoatlessprofessor.com/).
