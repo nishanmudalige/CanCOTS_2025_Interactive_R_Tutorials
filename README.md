@@ -5,6 +5,8 @@ This repository contains WebR templates and instructions from CanCOTS 2025 in Mo
 ---
 ## Team Members
 
+### Core Team
+
 | Role | Name | GitHub | Contributions |
 |----|----|----|---|
 | Team Leader | [Dave Riegert](https://github.com/driegert) | [![GitHub: driegert](https://img.shields.io/badge/GitHub-driegert-lightgrey?logo=github)](https://github.com/driegert) | Provided training, led group and wrote instructions in the README file. |
@@ -13,7 +15,7 @@ This repository contains WebR templates and instructions from CanCOTS 2025 in Mo
 | Contributor | [Irene Vrbik](https://github.com/vrbiki) | [![GitHub: vrbiki](https://img.shields.io/badge/GitHub-vrbiki-lightgrey?logo=github)](https://github.com/vrbiki) | Created the skeleton course with sample slides. |
 | Participant | [Allan Majdanac](https://github.com/majdanaca) | [![GitHub: majdanaca](https://img.shields.io/badge/GitHub-majdanaca-lightgrey?logo=github)](https://github.com/majdanaca) | Testing. |
 
-## Additional Support
+### Additional Support
 
 | Role | Name | GitHub | Contributions |
 |----|----|----|---|
