@@ -1,63 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/tutorials/graded_tutorial_intro_to_r.html</loc>
-    <lastmod>2026-05-08T06:44:08.922Z</lastmod>
-  </url>
-  <url>
     <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/lectures/lecture-template.html</loc>
-    <lastmod>2026-05-08T03:07:24.710Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/syllabus.html</loc>
-    <lastmod>2026-05-08T03:07:24.710Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/about.html</loc>
-    <lastmod>2026-05-08T03:07:24.699Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/activities/activity_coins.html</loc>
-    <lastmod>2026-05-08T06:32:53.091Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/tutorials/tutorial_intro_to_r.html</loc>
-    <lastmod>2026-05-08T06:44:08.928Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/TODO.html</loc>
-    <lastmod>2026-05-08T04:29:26.157Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/CHANGEMYNAME.html</loc>
-    <lastmod>2026-05-08T03:07:24.697Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/tutorials/tutorial_regression.html</loc>
-    <lastmod>2026-05-08T06:44:08.929Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/index.html</loc>
-    <lastmod>2026-05-08T05:45:35.576Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/activities/activity_coins.html</loc>
-    <lastmod>2026-05-08T06:32:53.091Z</lastmod>
+    <lastmod>2026-05-08T06:44:08.861Z</lastmod>
   </url>
   <url>
     <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/lectures/regression-lecture.html</loc>
-    <lastmod>2026-05-08T03:07:24.710Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/tutorials/tutorial_regression.html</loc>
-    <lastmod>2026-05-08T06:32:03.568Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/tutorials/graded_tutorial_intro_to_r.html</loc>
-    <lastmod>2026-05-08T06:44:08.869Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nishanmudalige.github.io/STA258_Tutorials/course_skeleton/tutorials/tutorial_intro_to_r.html</loc>
-    <lastmod>2026-05-08T06:30:15.322Z</lastmod>
+    <lastmod>2026-05-08T06:44:08.862Z</lastmod>
   </url>
 </urlset>

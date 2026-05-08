@@ -1,331 +1,2130 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Dr.&nbsp;Irene Vrbik">
-
-<title>Regression – Course Tutorials</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
-
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<html lang="en"><head>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
+  <meta name="author" content="Dr.&nbsp;Irene Vrbik">
+  <title>Course Tutorials – Regression</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
       }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-quiz/quiz.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+  <style type="text/css">
+  .monaco-editor pre {
+    background-color: unset !important;
+  }
+
+  .qwebr-editor-toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .qwebr-editor-toolbar-left-buttons, .qwebr-editor-toolbar-right-buttons {
+    display: flex;
+  }
+
+  .qwebr-non-interactive-loading-container.qwebr-cell-needs-evaluation, .qwebr-non-interactive-loading-container.qwebr-cell-evaluated {
+    justify-content: center;
+    display: flex;
+    background-color: rgba(250, 250, 250, 0.65);
+    border: 1px solid rgba(233, 236, 239, 0.65);
+    border-radius: 0.5rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .qwebr-r-project-logo {
+    color: #2767B0; /* R Project's blue color */
+  }
+
+  .qwebr-icon-status-spinner {
+    color: #7894c4;
+  }
+
+  .qwebr-icon-run-code {
+    color: #0d9c29
+  }
+
+  body.quarto-light .qwebr-output-code-stdout {
+    color: #111;
+  }
+
+  body.quarto-dark .qwebr-output-code-stdout {
+    color: #EEE;
+  }
+
+  .qwebr-output-code-stderr {
+    color: #db4133;
+  }
+
+  body.quarto-light .qwebr-editor {
+    border: 1px solid #EEEEEE;
+  }
+
+  body.quarto-light .qwebr-editor-toolbar {
+    background-color: #EEEEEE;
+    padding: 0.2rem 0.5rem;
+  }
+
+  body.quarto-dark .qwebr-editor {
+    border: 1px solid #111;
+  }
+
+  body.quarto-dark .qwebr-editor-toolbar {
+    background-color: #111;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .qwebr-button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.375rem 0.75rem;
+    font-size: .9rem;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+
+  body.quarto-light .qwebr-button {
+    background-color: #EEEEEE;
+    color: #000;
+    border-color: #dee2e6;
+    border: 1px solid rgba(0,0,0,0);
+  }
+
+  body.quarto-dark .qwebr-button {
+    background-color: #111;
+    color: #EEE;
+    border-color: #dee2e6;
+    border: 1px solid rgba(0,0,0,0);
+  }
+
+  body.quarto-light .qwebr-button:hover {
+    color: #000;
+    background-color: #d9dce0;
+    border-color: #c8ccd0;
+  }
+
+  body.quarto-dark .qwebr-button:hover {
+    color: #d9dce0;
+    background-color: #323232;
+    border-color: #d9dce0;
+  }
+
+  .qwebr-button:disabled,.qwebr-button.disabled,fieldset:disabled .qwebr-button {
+    pointer-events: none;
+    opacity: .65
+  }
+
+  .qwebr-button-reset {
+    color: #696969; /*#4682b4;*/
+  }
+
+  .qwebr-button-copy {
+    color: #696969;
+  }
+
+  /* Style the code highlight lines */
+  body.quarto-light .qwebr-editor-highlight-line {
+    background-color: lightblue;
+  }
+
+  body.quarto-dark .qwebr-editor-highlight-line {
+    background-color: darkblue;
+  }
+
+  /* Style the modal pop-up */
+
+  /* The Modal (background) */
+  .qwebr-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+
+  /* Modal Content */
+  .qwebr-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+  .qwebr-modal-content-code {
+    max-height: 50vh;
+    min-height: 5vh;
+    overflow: scroll;
+    border: 1px solid #888;
+  }
+
+  /* The Close Button */
+  .qwebr-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .qwebr-modal-close:hover,
+  .qwebr-modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .qwebr-download-btn {
+    margin-top: 10px;
+    text-decoration: none !important;
+  }
+
+  /* Styling to download image that is created */
+
+  .qwebr-canvas-image {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .qwebr-canvas-image-download-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+  }
+
+  figure:hover .qwebr-canvas-image-download-btn {
+    display: block;
+  }
+
+  /* Custom styling for RevealJS Presentations*/
+
+  /* Reset the style of the interactive area */
+  .reveal div.qwebr-interactive-area {
+    display: block;
+    box-shadow: none;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Provide space to entries */
+  .reveal div.qwebr-output-code-area pre div {
+    margin: 1px 2px 1px 10px;
+  }
+
+  /* Collapse the inside code tags to avoid extra space between line outputs */
+  .reveal pre div code.qwebr-output-code-stdout, .reveal pre div code.qwebr-output-code-stderr {
+    padding: 0;
+    display: contents;
+  }
+
+  body.reveal.quarto-light pre div code.qwebr-output-code-stdout {
+    color: #111;
+  }
+
+  body.reveal.quarto-dark pre div code.qwebr-output-code-stdout {
+    color: #EEEEEE;
+  }
+
+  .reveal pre div code.qwebr-output-code-stderr {
+    color: #db4133;
+  }
+
+
+  /* Create a border around console and output (does not effect graphs) */
+  body.reveal.quarto-light div.qwebr-console-area {
+    border: 1px solid #EEEEEE;
+    box-shadow: 2px 2px 10px #EEEEEE;
+  }
+
+  body.reveal.quarto-dark div.qwebr-console-area {
+    border: 1px solid #111;
+    box-shadow: 2px 2px 10px #111;
+  }
+
+
+  /* Cap output height and allow text to scroll */
+  /* TODO: Is there a better way to fit contents/max it parallel to the monaco editor size? */
+  .reveal div.qwebr-output-code-area pre {
+    max-height: 400px;
+    overflow: scroll;
+  }
+
+  iframe.qwebr-output-code-browse {
+    width: 100%;
+
+    /*
+      TODO: How to make the height automatic according to the widget size,
+      or respect the quarto code block options?
+    */
+    min-height: 500px;
+  }
+
+  </style>
+  <script type="module">
+  // Document level settings ----
+
+  // Determine if we need to install R packages
+  globalThis.qwebrInstallRPackagesList = ['tibble', 'ggplot2'];
+
+  // Specify possible locations to search for the repository
+  globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
+
+  // Check to see if we have an empty array, if we do set to skip the installation.
+  globalThis.qwebrSetupRPackages = !(qwebrInstallRPackagesList.indexOf("") !== -1);
+  globalThis.qwebrAutoloadRPackages = true;
+
+  // Display a startup message?
+  globalThis.qwebrShowStartupMessage = true;
+  globalThis.qwebrShowHeaderMessage = false;
+
+  // Describe the webR settings that should be used
+  globalThis.qwebrCustomizedWebROptions = {
+    "baseURL": "https://webr.r-wasm.org/v0.4.0/",
+    "serviceWorkerUrl": "",
+    "homedir": "/home/web_user", 
+    "channelType": "ChannelType.Automatic"
+  };
+
+  // Store cell data
+  globalThis.qwebrCellDetails = [{"code":"theme_set(theme_bw())","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"set.seed(2025); n = 8\natib <- tibble(x = rnorm(8), y = 2 + 4*x + rnorm(n, sd = 2))\natib %>% ggplot(aes(x = x, y = y)) + \n  geom_point(colour=\"red\", size = 3) ","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"beta0 = __ # pick a y-intercept\nbeta1 = __ # pick a slope","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"n = 20 # number of points \nx = sample(100, n)\ny = beta0 + beta1*x\nplot(x, y)","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"beta0 = 3; beta1 = 4; n = 20; x = sample(100, n)\neps = rnorm(n, mean = 0, sd = 15) # random noise \ny = beta0 + beta1*x + eps         # linear model with noise\nplot(x, y)                        # plot the data","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+
+  </script>
+  <script type="module">
+  // Declare startupMessageQWebR globally
+  globalThis.qwebrStartupMessage = document.createElement("p");
+
+  // Verify if OffScreenCanvas is supported
+  globalThis.qwebrOffScreenCanvasSupport = function() {
+    return typeof OffscreenCanvas !== 'undefined'
+  }
+
+  // Function to set the button text
+  globalThis.qwebrSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
+    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+      btn.innerHTML = buttonText;
+      btn.disabled = !enableCodeButton;
+    });
+  }
+
+  // Function to update the status message in non-interactive cells
+  globalThis.qwebrUpdateStatusMessage = function(message) {
+    document.querySelectorAll(".qwebr-status-text.qwebr-cell-needs-evaluation").forEach((elem) => {
+      elem.innerText = message;
+    });
+  }
+
+  // Function to update the status message
+  globalThis.qwebrUpdateStatusHeader = function(message) {
+    qwebrStartupMessage.innerHTML = `
+      <i class="fa-solid fa-spinner fa-spin qwebr-icon-status-spinner"></i>
+      <span>${message}</span>`;
+  }
+
+  // Function to return true if element is found, false if not
+  globalThis.qwebrCheckHTMLElementExists = function(selector) {
+    const element = document.querySelector(selector);
+    return !!element;
+  }
+
+  // Function that detects whether reveal.js slides are present
+  globalThis.qwebrIsRevealJS = function() {
+    // If the '.reveal .slides' selector exists, RevealJS is likely present
+    return qwebrCheckHTMLElementExists('.reveal .slides');
+  }
+
+  // Initialize the Quarto sidebar element
+  function qwebrSetupQuartoSidebar() {
+    var newSideBarDiv = document.createElement('div');
+    newSideBarDiv.id = 'quarto-margin-sidebar';
+    newSideBarDiv.className = 'sidebar margin-sidebar';
+    newSideBarDiv.style.top = '0px';
+    newSideBarDiv.style.maxHeight = 'calc(0px + 100vh)';
+
+    return newSideBarDiv;
+  }
+
+  // Position the sidebar in the document
+  function qwebrPlaceQuartoSidebar() {
+    // Get the reference to the element with id 'quarto-document-content'
+    var referenceNode = document.getElementById('quarto-document-content');
+
+    // Create the new div element
+    var newSideBarDiv = qwebrSetupQuartoSidebar();
+
+    // Insert the new div before the 'quarto-document-content' element
+    referenceNode.parentNode.insertBefore(newSideBarDiv, referenceNode);
+  }
+
+  function qwebrPlaceMessageContents(content, html_location = "title-block-header", revealjs_location = "title-slide") {
+
+    // Get references to header elements
+    const headerHTML = document.getElementById(html_location);
+    const headerRevealJS = document.getElementById(revealjs_location);
+
+    // Determine where to insert the quartoTitleMeta element
+    if (headerHTML || headerRevealJS) {
+      // Append to the existing "title-block-header" element or "title-slide" div
+      (headerHTML || headerRevealJS).appendChild(content);
+    } else {
+      // If neither headerHTML nor headerRevealJS is found, insert after "webr-monaco-editor-init" script
+      const monacoScript = document.getElementById("qwebr-monaco-editor-init");
+      const header = document.createElement("header");
+      header.setAttribute("id", "title-block-header");
+      header.appendChild(content);
+      monacoScript.after(header);
     }
   }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
+
+
+  function qwebrOffScreenCanvasSupportWarningMessage() {
+    
+    // Verify canvas is supported.
+    if(qwebrOffScreenCanvasSupport()) return;
+
+    // Create the main container div
+    var calloutContainer = document.createElement('div');
+    calloutContainer.classList.add('callout', 'callout-style-default', 'callout-warning', 'callout-titled');
+
+    // Create the header div
+    var headerDiv = document.createElement('div');
+    headerDiv.classList.add('callout-header', 'd-flex', 'align-content-center');
+
+    // Create the icon container div
+    var iconContainer = document.createElement('div');
+    iconContainer.classList.add('callout-icon-container');
+
+    // Create the icon element
+    var iconElement = document.createElement('i');
+    iconElement.classList.add('callout-icon');
+
+    // Append the icon element to the icon container
+    iconContainer.appendChild(iconElement);
+
+    // Create the title container div
+    var titleContainer = document.createElement('div');
+    titleContainer.classList.add('callout-title-container', 'flex-fill');
+    titleContainer.innerText = 'Warning: Web Browser Does Not Support Graphing!';
+
+    // Append the icon container and title container to the header div
+    headerDiv.appendChild(iconContainer);
+    headerDiv.appendChild(titleContainer);
+
+    // Create the body container div
+    var bodyContainer = document.createElement('div');
+    bodyContainer.classList.add('callout-body-container', 'callout-body');
+
+    // Create the paragraph element for the body content
+    var paragraphElement = document.createElement('p');
+    paragraphElement.innerHTML = 'This web browser does not have support for displaying graphs through the <code>quarto-webr</code> extension since it lacks an <code>OffScreenCanvas</code>. Please upgrade your web browser to one that supports <code>OffScreenCanvas</code>.';
+
+    // Append the paragraph element to the body container
+    bodyContainer.appendChild(paragraphElement);
+
+    // Append the header div and body container to the main container div
+    calloutContainer.appendChild(headerDiv);
+    calloutContainer.appendChild(bodyContainer);
+
+    // Append the main container div to the document depending on format
+    qwebrPlaceMessageContents(calloutContainer, "title-block-header"); 
+
+  }
+
+
+  // Function that attaches the document status message and diagnostics
+  function displayStartupMessage(showStartupMessage, showHeaderMessage) {
+    if (!showStartupMessage) {
+      return;
+    }
+
+    // Create the outermost div element for metadata
+    const quartoTitleMeta = document.createElement("div");
+    quartoTitleMeta.classList.add("quarto-title-meta");
+
+    // Create the first inner div element
+    const firstInnerDiv = document.createElement("div");
+    firstInnerDiv.setAttribute("id", "qwebr-status-message-area");
+
+    // Create the second inner div element for "WebR Status" heading and contents
+    const secondInnerDiv = document.createElement("div");
+    secondInnerDiv.setAttribute("id", "qwebr-status-message-title");
+    secondInnerDiv.classList.add("quarto-title-meta-heading");
+    secondInnerDiv.innerText = "WebR Status";
+
+    // Create another inner div for contents
+    const secondInnerDivContents = document.createElement("div");
+    secondInnerDivContents.setAttribute("id", "qwebr-status-message-body");
+    secondInnerDivContents.classList.add("quarto-title-meta-contents");
+
+    // Describe the WebR state
+    qwebrStartupMessage.innerText = "🟡 Loading...";
+    qwebrStartupMessage.setAttribute("id", "qwebr-status-message-text");
+    // Add `aria-live` to auto-announce the startup status to screen readers
+    qwebrStartupMessage.setAttribute("aria-live", "assertive");
+
+    // Append the startup message to the contents
+    secondInnerDivContents.appendChild(qwebrStartupMessage);
+
+    // Add a status indicator for COOP and COEP Headers if needed
+    if (showHeaderMessage) {
+      const crossOriginMessage = document.createElement("p");
+      crossOriginMessage.innerText = `${crossOriginIsolated ? '🟢' : '🟡'} COOP & COEP Headers`;
+      crossOriginMessage.setAttribute("id", "qwebr-coop-coep-header");
+      secondInnerDivContents.appendChild(crossOriginMessage);
+    }
+
+    // Combine the inner divs and contents
+    firstInnerDiv.appendChild(secondInnerDiv);
+    firstInnerDiv.appendChild(secondInnerDivContents);
+    quartoTitleMeta.appendChild(firstInnerDiv);
+
+    // Place message on webpage
+    qwebrPlaceMessageContents(quartoTitleMeta); 
+  }
+
+  function qwebrAddCommandHistoryModal() {
+    // Create the modal div
+    var modalDiv = document.createElement('div');
+    modalDiv.id = 'qwebr-history-modal';
+    modalDiv.className = 'qwebr-modal';
+
+    // Create the modal content div
+    var modalContentDiv = document.createElement('div');
+    modalContentDiv.className = 'qwebr-modal-content';
+
+    // Create the span for closing the modal
+    var closeSpan = document.createElement('span');
+    closeSpan.id = 'qwebr-command-history-close-btn';
+    closeSpan.className = 'qwebr-modal-close';
+    closeSpan.innerHTML = '&times;';
+
+    // Create the h1 element for the modal
+    var modalH1 = document.createElement('h1');
+    modalH1.textContent = 'R History Command Contents';
+
+    // Create an anchor element for downloading the Rhistory file 
+    var downloadLink = document.createElement('a');
+    downloadLink.href = '#';
+    downloadLink.id = 'qwebr-download-history-btn';
+    downloadLink.className = 'qwebr-download-btn';
+
+    // Create an 'i' element for the icon
+    var icon = document.createElement('i');
+    icon.className = 'bi bi-file-code';
+
+    // Append the icon to the anchor element
+    downloadLink.appendChild(icon);
+
+    // Add the text 'Download R History' to the anchor element
+    downloadLink.appendChild(document.createTextNode(' Download R History File'));
+
+    // Create the pre for command history contents
+    var commandContentsPre = document.createElement('pre');
+    commandContentsPre.id = 'qwebr-command-history-contents';
+    commandContentsPre.className = 'qwebr-modal-content-code';
+
+    // Append the close span, h1, and history contents pre to the modal content div
+    modalContentDiv.appendChild(closeSpan);
+    modalContentDiv.appendChild(modalH1);
+    modalContentDiv.appendChild(downloadLink);
+    modalContentDiv.appendChild(commandContentsPre);
+
+    // Append the modal content div to the modal div
+    modalDiv.appendChild(modalContentDiv);
+
+    // Append the modal div to the body
+    document.body.appendChild(modalDiv);
+  }
+
+  function qwebrRegisterRevealJSCommandHistoryModal() {
+    // Select the <ul> element inside the <div> with data-panel="Custom0"
+    let ulElement = document.querySelector('div[data-panel="Custom0"] > ul.slide-menu-items');
+
+    // Find the last <li> element with class slide-tool-item
+    let lastItem = ulElement.querySelector('li.slide-tool-item:last-child');
+
+    // Calculate the next data-item value
+    let nextItemValue = 0;
+    if (lastItem) {
+        nextItemValue = parseInt(lastItem.dataset.item) + 1;
+    }
+
+    // Create a new <li> element
+    let newListItem = document.createElement('li');
+    newListItem.className = 'slide-tool-item';
+    newListItem.dataset.item = nextItemValue.toString(); // Set the next available data-item value
+
+    // Create the <a> element inside the <li>
+    let newLink = document.createElement('a');
+    newLink.href = '#';
+    newLink.id = 'qwebrRHistoryButton'; // Set the ID for the new link
+    
+    // Create the <kbd> element inside the <a>
+    let newKbd = document.createElement('kbd');
+    newKbd.textContent = ' '; // Set to empty as we are not registering a keyboard shortcut
+
+    // Create text node for the link text
+    let newText = document.createTextNode(' View R History');
+
+    // Append <kbd> and text node to <a>
+    newLink.appendChild(newKbd);
+    newLink.appendChild(newText);
+
+    // Append <a> to <li>
+    newListItem.appendChild(newLink);
+
+    // Append <li> to <ul>
+    ulElement.appendChild(newListItem);
+  }
+
+  // Handle setting up the R history modal
+  function qwebrCodeLinks() {
+
+    if (qwebrIsRevealJS()) {
+      qwebrRegisterRevealJSCommandHistoryModal();
+      return;
+    }
+
+    // Create the container div
+    var containerDiv = document.createElement('div');
+    containerDiv.className = 'quarto-code-links';
+
+    // Create the h2 element
+    var h2 = document.createElement('h2');
+    h2.textContent = 'webR Code Links';
+
+    // Create the ul element
+    var ul = document.createElement('ul');
+
+    // Create the li element
+    var li = document.createElement('li');
+
+    // Create the a_history_btn element
+    var a_history_btn = document.createElement('a');
+    a_history_btn.href = 'javascript:void(0)';
+    a_history_btn.setAttribute('id', 'qwebrRHistoryButton');
+
+    // Create the i_history_btn element
+    var i_history_btn = document.createElement('i');
+    i_history_btn.className = 'bi bi-file-code';
+
+    // Create the text node for the link text
+    var text_history_btn = document.createTextNode('View R History');
+
+    // Append the icon element and link text to the a element
+    a_history_btn.appendChild(i_history_btn);
+    a_history_btn.appendChild(text_history_btn);
+
+    // Append the a element to the li element
+    li.appendChild(a_history_btn);
+
+    // Append the li element to the ul element
+    ul.appendChild(li);
+
+    // Append the h2 and ul elements to the container div
+    containerDiv.appendChild(h2);
+    containerDiv.appendChild(ul);
+
+    // Append the container div to the element with the ID 'quarto-margin-sidebar'
+    var sidebar = document.getElementById('quarto-margin-sidebar');
+      
+    // If the sidebar element is not found, create it
+    if(!sidebar) {
+      qwebrPlaceQuartoSidebar();
+    }
+    
+    // Re-select the sidebar element (if it was just created)
+    sidebar = document.getElementById('quarto-margin-sidebar');   
+
+
+    // If the sidebar element exists, append the container div to it
+    if(sidebar) {
+      // Append the container div to the sidebar
+      sidebar.appendChild(containerDiv);
+      // Force the sidebar to be clickable by removing the 'zindex-bottom' class
+      // added in pre-release: https://github.com/quarto-dev/quarto-cli/commit/f0c53a1ffcaa1de4eccbf07803b096898248adcc
+      sidebar.className = 'sidebar margin-sidebar';
+    } else {
+      // Get a debugger ...
+      console.warn('Element with ID "quarto-margin-sidebar" not found.');
+    }
+  }
+
+  // Call the function to append the code links for qwebR into the right sidebar
+  qwebrCodeLinks();
+
+  // Add the command history modal
+  qwebrAddCommandHistoryModal();
+
+  displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
+  qwebrOffScreenCanvasSupportWarningMessage();
+  </script>
+  <script type="module">
+  // Define a global storage and retrieval solution ----
+
+  // Store commands executed in R
+  globalThis.qwebrRCommandHistory = [];
+
+  // Function to retrieve the command history
+  globalThis.qwebrFormatRHistory = function() {
+     return qwebrRCommandHistory.join("\n\n");
+  }
+
+  // Retrieve HTML Elements ----
+
+  // Get the command modal
+  const command_history_modal = document.getElementById("qwebr-history-modal");
+
+  // Get the button that opens the command modal
+  const command_history_btn = document.getElementById("qwebrRHistoryButton");
+
+  // Get the <span> element that closes the command modal
+  const command_history_close_span = document.getElementById("qwebr-command-history-close-btn");
+
+  // Get the download button for r history information
+  const command_history_download_btn = document.getElementById("qwebr-download-history-btn");
+
+  // Plug in command history into modal/download button ----
+
+  // Function to populate the modal with command history
+  function populateCommandHistoryModal() {
+      document.getElementById("qwebr-command-history-contents").innerHTML = qwebrFormatRHistory() || "No commands have been executed yet.";
+  }
+
+  // Function to format the current date and time to
+  // a string with the format YYYY-MM-DD-HH-MM-SS
+  function formatDateTime() {
+      const now = new Date();
+
+      const year = now.getFullYear();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      return `${year}-${month}-${day}-${hours}-${minutes}-${seconds}`;
+  }
+
+
+  // Function to convert document title with datetime to a safe filename
+  function safeFileName() {
+      // Get the current page title
+      let pageTitle = document.title;
+
+      // Combine the current page title with the current date and time
+      let pageNameWithDateTime = `Rhistory-${pageTitle}-${formatDateTime()}`;
+
+      // Replace unsafe characters with safe alternatives
+      let safeFilename = pageNameWithDateTime.replace(/[\\/:\*\?! "<>\|]/g, '-');
+
+      return safeFilename;
+  }
+
+
+  // Function to download list contents as text file
+  function downloadRHistory() {
+      // Get the current page title + datetime and use it as the filename
+      const filename = `${safeFileName()}.R`;
+
+      // Get the text contents of the R History list
+      const text = qwebrFormatRHistory();
+
+      // Create a new Blob object with the text contents
+      const blob = new Blob([text], { type: 'text/plain' });
+    
+      // Create a new anchor element for the download
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+
+      // Append the anchor to the body, click it, and remove it
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+  }
+
+  // Register event handlers ----
+
+  // When the user clicks the View R History button, open the command modal
+  command_history_btn.onclick = function() {
+      populateCommandHistoryModal();
+      command_history_modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the command modal
+  command_history_close_span.onclick = function() {
+      command_history_modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the command modal, close it
+  window.onclick = function(event) {
+      if (event.target == command_history_modal) {
+          command_history_modal.style.display = "none";
+      }
+  }
+
+  // Add an onclick event listener to the download button so that
+  // the user can download the R history as a text file
+  command_history_download_btn.onclick = function() {
+      downloadRHistory();
+  };
+  </script>
+  <script type="module">
+  // Supported Evaluation Types for Context
+  globalThis.EvalTypes = Object.freeze({
+    Interactive: 'interactive',
+    Setup: 'setup',
+    Output: 'output',
+  });
+
+  // Function that obtains the font size for a given element 
+  globalThis.qwebrCurrentFontSizeOnElement = function(element, cssProperty = 'font-size') {
+
+    const currentFontSize = parseFloat(
+      window
+      .getComputedStyle(element)
+      .getPropertyValue(cssProperty)
+    );
+    
+    return currentFontSize;
+  }
+
+  // Function to determine font scaling
+  globalThis.qwebrScaledFontSize = function(div, qwebrOptions) {
+    // Determine if we should compute font-size using RevealJS's `--r-main-font-size` 
+    // or if we can directly use the document's `font-size`.
+    const cssProperty = document.body.classList.contains('reveal') ? 
+      "--r-main-font-size" : "font-size";
+    
+    // Get the current font size on the div element
+    const elementFontSize = qwebrCurrentFontSizeOnElement(div, cssProperty);
+
+    // Determine the scaled font size value
+    const scaledFontSize = ((qwebrOptions['editor-font-scale'] ?? 1) * elementFontSize) ?? 17.5;
+
+    return scaledFontSize;
+  }
+
+
+  // Function that dispatches the creation request
+  globalThis.qwebrCreateHTMLElement = function (
+    cellData
+  ) {
+
+    // Extract key components
+    const evalType = cellData.options.context;
+    const qwebrCounter = cellData.id;
+
+    // We make an assumption that insertion points are defined by the Lua filter as:
+    // qwebr-insertion-location-{qwebrCounter} 
+    const elementLocator = document.getElementById(`qwebr-insertion-location-${qwebrCounter}`);
+
+    // Figure out the routine to use to insert the element.
+    let qwebrElement;
+    switch ( evalType ) {
+      case EvalTypes.Interactive:
+        qwebrElement = qwebrCreateInteractiveElement(qwebrCounter, cellData.options);
+        break;
+      case EvalTypes.Output: 
+        qwebrElement = qwebrCreateNonInteractiveOutputElement(qwebrCounter, cellData.options);
+        break;
+      case EvalTypes.Setup: 
+        qwebrElement = qwebrCreateNonInteractiveSetupElement(qwebrCounter, cellData.options);
+        break;
+      default: 
+        qwebrElement = document.createElement('div');
+        qwebrElement.textContent = 'Error creating `quarto-webr` element';
+    }
+
+    // Insert the dynamically generated object at the document location.
+    elementLocator.appendChild(qwebrElement);
+  };
+
+  // Function that setups the interactive element creation
+  globalThis.qwebrCreateInteractiveElement = function (qwebrCounter, qwebrOptions) {
+
+    // Create main div element
+    var mainDiv = document.createElement('div');
+    mainDiv.id = 'qwebr-interactive-area-' + qwebrCounter;
+    mainDiv.className = `qwebr-interactive-area`;
+    if (qwebrOptions.classes) {
+      mainDiv.className += " " + qwebrOptions.classes
+    }
+
+    // Add a unique cell identifier that users can customize
+    if (qwebrOptions.label) {
+      mainDiv.setAttribute('data-id', qwebrOptions.label);
+    }
+
+    // Create toolbar div
+    var toolbarDiv = document.createElement('div');
+    toolbarDiv.className = 'qwebr-editor-toolbar';
+    toolbarDiv.id = 'qwebr-editor-toolbar-' + qwebrCounter;
+
+    // Create a div to hold the left buttons
+    var leftButtonsDiv = document.createElement('div');
+    leftButtonsDiv.className = 'qwebr-editor-toolbar-left-buttons';
+
+    // Create a div to hold the right buttons
+    var rightButtonsDiv = document.createElement('div');
+    rightButtonsDiv.className = 'qwebr-editor-toolbar-right-buttons';
+
+    // Create Run Code button
+    var runCodeButton = document.createElement('button');
+    runCodeButton.className = 'btn btn-default qwebr-button qwebr-button-run';
+    runCodeButton.disabled = true;
+    runCodeButton.type = 'button';
+    runCodeButton.id = 'qwebr-button-run-' + qwebrCounter;
+    runCodeButton.textContent = '🟡 Loading webR...';
+    runCodeButton.title = `Run code (Shift + Enter)`;
+
+    // Append buttons to the leftButtonsDiv
+    leftButtonsDiv.appendChild(runCodeButton);
+
+    // Create Reset button
+    var resetButton = document.createElement('button');
+    resetButton.className = 'btn btn-light btn-xs qwebr-button qwebr-button-reset';
+    resetButton.type = 'button';
+    resetButton.id = 'qwebr-button-reset-' + qwebrCounter;
+    resetButton.title = 'Start over';
+    resetButton.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i>';
+
+    // Create Copy button
+    var copyButton = document.createElement('button');
+    copyButton.className = 'btn btn-light btn-xs qwebr-button qwebr-button-copy';
+    copyButton.type = 'button';
+    copyButton.id = 'qwebr-button-copy-' + qwebrCounter;
+    copyButton.title = 'Copy code';
+    copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
+
+    // Append buttons to the rightButtonsDiv
+    rightButtonsDiv.appendChild(resetButton);
+    rightButtonsDiv.appendChild(copyButton);
+
+    // Create console area div
+    var consoleAreaDiv = document.createElement('div');
+    consoleAreaDiv.id = 'qwebr-console-area-' + qwebrCounter;
+    consoleAreaDiv.className = 'qwebr-console-area';
+
+    // Create editor div
+    var editorDiv = document.createElement('div');
+    editorDiv.id = 'qwebr-editor-' + qwebrCounter;
+    editorDiv.className = 'qwebr-editor';
+
+    // Create output code area div
+    var outputCodeAreaDiv = document.createElement('div');
+    outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
+    outputCodeAreaDiv.className = 'qwebr-output-code-area';
+    outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
+
+    // Create pre element inside output code area
+    var preElement = document.createElement('pre');
+    preElement.style.visibility = 'hidden';
+    outputCodeAreaDiv.appendChild(preElement);
+
+    // Create output graph area div
+    var outputGraphAreaDiv = document.createElement('div');
+    outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
+    outputGraphAreaDiv.className = 'qwebr-output-graph-area';
+
+    // Append buttons to the toolbar
+    toolbarDiv.appendChild(leftButtonsDiv);
+    toolbarDiv.appendChild(rightButtonsDiv);
+
+    // Append all elements to the main div
+    mainDiv.appendChild(toolbarDiv);
+    consoleAreaDiv.appendChild(editorDiv);
+    consoleAreaDiv.appendChild(outputCodeAreaDiv);
+    mainDiv.appendChild(consoleAreaDiv);
+    mainDiv.appendChild(outputGraphAreaDiv);
+
+    return mainDiv;
+  }
+
+  // Function that adds output structure for non-interactive output
+  globalThis.qwebrCreateNonInteractiveOutputElement = function(qwebrCounter, qwebrOptions) {
+    // Create main div element
+    var mainDiv = document.createElement('div');
+    mainDiv.id = 'qwebr-noninteractive-area-' + qwebrCounter;
+    mainDiv.className = `qwebr-noninteractive-area`;
+    if (qwebrOptions.classes) {
+      mainDiv.className += " " + qwebrOptions.classes
+    }
+    
+    // Add a unique cell identifier that users can customize
+    if (qwebrOptions.label) {
+      mainDiv.setAttribute('data-id', qwebrOptions.label);
+    }
+    
+    // Create a status container div
+    var statusContainer = createLoadingContainer(qwebrCounter);
+
+    // Create output code area div
+    var outputCodeAreaDiv = document.createElement('div');
+    outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
+    outputCodeAreaDiv.className = 'qwebr-output-code-area';
+    outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
+
+    // Create pre element inside output code area
+    var preElement = document.createElement('pre');
+    preElement.style.visibility = 'hidden';
+    outputCodeAreaDiv.appendChild(preElement);
+
+    // Create output graph area div
+    var outputGraphAreaDiv = document.createElement('div');
+    outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
+    outputGraphAreaDiv.className = 'qwebr-output-graph-area';
+
+    // Append all elements to the main div
+    mainDiv.appendChild(statusContainer);
+    mainDiv.appendChild(outputCodeAreaDiv);
+    mainDiv.appendChild(outputGraphAreaDiv);
+
+    return mainDiv;
+  };
+
+  // Function that adds a stub in the page to indicate a setup cell was used.
+  globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter, qwebrOptions) {
+    // Create main div element
+    var mainDiv = document.createElement('div');
+    mainDiv.id = `qwebr-noninteractive-setup-area-${qwebrCounter}`;
+    mainDiv.className = `qwebr-noninteractive-setup-area`;
+    if (qwebrOptions.classes) {
+      mainDiv.className += " " + qwebrOptions.classes
+    }
+
+
+    // Add a unique cell identifier that users can customize
+    if (qwebrOptions.label) {
+      mainDiv.setAttribute('data-id', qwebrOptions.label);
+    }
+
+    // Create a status container div
+    var statusContainer = createLoadingContainer(qwebrCounter);
+
+    // Append status onto the main div
+    mainDiv.appendChild(statusContainer);
+
+    return mainDiv;
+  }
+
+
+  // Function to create loading container with specified ID
+  globalThis.createLoadingContainer = function(qwebrCounter) {
+
+    // Create a status container
+    const container = document.createElement('div');
+    container.id = `qwebr-non-interactive-loading-container-${qwebrCounter}`;
+    container.className = 'qwebr-non-interactive-loading-container qwebr-cell-needs-evaluation';
+
+    // Create an R project logo to indicate its a code space
+    const rProjectIcon = document.createElement('i');
+    rProjectIcon.className = 'fa-brands fa-r-project fa-3x qwebr-r-project-logo';
+
+    // Setup a loading icon from font awesome
+    const spinnerIcon = document.createElement('i');
+    spinnerIcon.className = 'fa-solid fa-spinner fa-spin fa-1x qwebr-icon-status-spinner';
+
+    // Add a section for status text
+    const statusText = document.createElement('p');
+    statusText.id = `qwebr-status-text-${qwebrCounter}`;
+    statusText.className = `qwebr-status-text qwebr-cell-needs-evaluation`;
+    statusText.innerText = 'Loading webR...';
+
+    // Incorporate an inner container
+    const innerContainer = document.createElement('div');
+
+    // Append elements to the inner container
+    innerContainer.appendChild(spinnerIcon);
+    innerContainer.appendChild(statusText);
+
+    // Append elements to the main container
+    container.appendChild(rProjectIcon);
+    container.appendChild(innerContainer);
+
+    return container;
+  }
+  </script>
+  <script type="module">
+  // Function to install a single package
+  async function qwebrInstallRPackage(packageName) {
+    await mainWebR.evalRVoid(`webr::install('${packageName}');`);
+  }
+
+  // Function to load a single package
+  async function qwebrLoadRPackage(packageName) {
+    await mainWebR.evalRVoid(`require('${packageName}', quietly = TRUE)`);
+  }
+
+  // Generic function to process R packages
+  async function qwebrProcessRPackagesWithStatus(packages, processType, displayStatusMessageUpdate = true) {
+    // Switch between contexts
+    const messagePrefix = processType === 'install' ? 'Installing' : 'Loading';
+
+    // Modify button state
+    qwebrSetInteractiveButtonState(`🟡 ${messagePrefix} package ...`, false);
+
+    // Iterate over packages
+    for (let i = 0; i < packages.length; i++) {
+      const activePackage = packages[i];
+      const formattedMessage = `${messagePrefix} package ${i + 1} out of ${packages.length}: ${activePackage}`;
+
+      // Display the update in header
+      if (displayStatusMessageUpdate) {
+        qwebrUpdateStatusHeader(formattedMessage);
+      }
+
+      // Display the update in non-active areas
+      qwebrUpdateStatusMessage(formattedMessage);
+
+      // Run package installation
+      if (processType === 'install') {
+        await qwebrInstallRPackage(activePackage);
+      } else {
+        await qwebrLoadRPackage(activePackage);
+      }
+    }
+
+    // Clean slate
+    if (processType === 'load') {
+      await mainWebR.flush();
+    }
+  }
+
+  // Start a timer
+  const initializeWebRTimerStart = performance.now();
+
+  // Encase with a dynamic import statement
+  globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs").then(
+    async ({ WebR, ChannelType }) => {
+      // Populate WebR options with defaults or new values based on `webr` meta
+      globalThis.mainWebR = new WebR(qwebrCustomizedWebROptions);
+
+      // Initialization WebR
+      await mainWebR.init();
+
+      // Setup a shelter
+      globalThis.mainWebRCodeShelter = await new mainWebR.Shelter();
+
+      // Setup a pager to allow processing help documentation
+      await mainWebR.evalRVoid('webr::pager_install()');
+
+      // Setup a viewer to allow processing htmlwidgets.
+      // This might not be available in old webr version
+      await mainWebR.evalRVoid('try({ webr::viewer_install() })');
+
+      // Override the existing install.packages() to use webr::install()
+      await mainWebR.evalRVoid('webr::shim_install()');
+
+      // Specify the repositories to pull from
+      // Note: webR does not use the `repos` option, but instead uses `webr_pkg_repos`
+      // inside of `install()`. However, other R functions still pull from `repos`.
+      await mainWebR.evalRVoid(`
+        options(
+          webr_pkg_repos = c(${qwebrPackageRepoURLS.map(repoURL => `'${repoURL}'`).join(',')}),
+          repos = c(${qwebrPackageRepoURLS.map(repoURL => `'${repoURL}'`).join(',')})
+        )
+      `);
+
+      // Check to see if any packages need to be installed
+      if (qwebrSetupRPackages) {
+        // Obtain only a unique list of packages
+        const uniqueRPackageList = Array.from(new Set(qwebrInstallRPackagesList));
+
+        // Install R packages one at a time (either silently or with a status update)
+        await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'install', qwebrShowStartupMessage);
+
+        if (qwebrAutoloadRPackages) {
+          // Load R packages one at a time (either silently or with a status update)
+          await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'load', qwebrShowStartupMessage);
+        }
+      }
+    }
+  );
+
+  // Stop timer
+  const initializeWebRTimerEnd = performance.now();
+
+  </script>
+  <script type="module">
+  // Function to verify a given JavaScript Object is empty
+  globalThis.qwebrIsObjectEmpty = function (arr) {
+      return Object.keys(arr).length === 0;
+  }
+
+  // Global version of the Escape HTML function that converts HTML
+  // characters to their HTML entities.
+  globalThis.qwebrEscapeHTMLCharacters = function(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+  };
+
+  // Passthrough results
+  globalThis.qwebrIdentity = function(x) {
+      return x;
+  };
+
+  // Append a comment
+  globalThis.qwebrPrefixComment = function(x, comment) {
+      return `${comment}${x}`;
+  };
+
+  // Function to store the code in the history
+  globalThis.qwebrLogCodeToHistory = function(codeToRun, options) {
+      qwebrRCommandHistory.push(
+          `# Ran code in ${options.label} at ${new Date().toLocaleString()} ----\n${codeToRun}`
+      );
+  };
+
+  // Function to attach a download button onto the canvas
+  // allowing the user to download the image.
+  function qwebrImageCanvasDownloadButton(canvas, canvasContainer) {
+
+      // Create the download button
+      const downloadButton = document.createElement('button');
+      downloadButton.className = 'qwebr-canvas-image-download-btn';
+      downloadButton.textContent = 'Download Image';
+      canvasContainer.appendChild(downloadButton);
+
+      // Trigger a download of the image when the button is clicked
+      downloadButton.addEventListener('click', function() {
+          const image = canvas.toDataURL('image/png');
+          const link = document.createElement('a');
+          link.href = image;
+          link.download = 'qwebr-canvas-image.png';
+          link.click();
+      });
+  }
+
+
+  // Function to parse the pager results
+  globalThis.qwebrParseTypePager = async function (msg) {
+
+      // Split out the event data
+      const { path, title, deleteFile } = msg.data;
+
+      // Process the pager data by reading the information from disk
+      const paged_data = await mainWebR.FS.readFile(path).then((data) => {
+          // Obtain the file content
+          let content = new TextDecoder().decode(data);
+
+          // Remove excessive backspace characters until none remain
+          while(content.match(/.[\b]/)){
+              content = content.replace(/.[\b]/g, '');
+          }
+
+          // Returned cleaned data
+          return content;
+      });
+
+      // Unlink file if needed
+      if (deleteFile) {
+          await mainWebR.FS.unlink(path);
+      }
+
+      // Return extracted data with spaces
+      return paged_data;
+  };
+
+
+  // Function to parse the browse results
+  globalThis.qwebrParseTypeBrowse = async function (msg) {
+
+      // msg.type === "browse"
+      const path = msg.data.url;
+
+      // Process the browse data by reading the information from disk
+      const browse_data = await mainWebR.FS.readFile(path).then((data) => {
+          // Obtain the file content
+          let content = new TextDecoder().decode(data);
+
+          return content;
+      });
+
+      // Return extracted data as-is
+      return browse_data;
+  };
+
+  // Function to run the code using webR and parse the output
+  globalThis.qwebrComputeEngine = async function(
+      codeToRun,
+      elements,
+      options) {
+
+      // Call into the R compute engine that persists within the document scope.
+      // To be prepared for all scenarios, the following happens:
+      // 1. We setup a canvas device to write to by making a namespace call into the {webr} package
+      // 2. We use values inside of the options array to set the figure size.
+      // 3. We capture the output stream information (STDOUT and STERR)
+      // 4. We disable the current device's image creation.
+      // 5. Piece-wise parse the results into the different output areas
+
+      // Create a pager variable for help/file contents
+      let pager = [];
+
+      // Handle how output is processed
+      let showMarkup = options.results === "markup" && options.output !== "asis";
+      let processOutput;
+
+      if (showMarkup) {
+          processOutput = qwebrEscapeHTMLCharacters;
+      } else {
+          processOutput = qwebrIdentity;
+      }
+
+      // ----
+      // Convert from Inches to Pixels by using DPI (dots per inch)
+      // for bitmap devices (dpi * inches = pixels)
+      let fig_width = options["fig-width"] * options["dpi"];
+      let fig_height = options["fig-height"] * options["dpi"];
+
+      // Initialize webR
+      await mainWebR.init();
+
+      // Configure capture output
+      let captureOutputOptions = {
+          withAutoprint: true,
+          captureStreams: true,
+          captureConditions: false,
+          // env: webR.objs.emptyEnv, // maintain a global environment for webR v0.2.0
+      };
+
+      // Determine if the browser supports OffScreen
+      if (qwebrOffScreenCanvasSupport()) {
+          // Mirror default options of webr::canvas()
+          // with changes to figure height and width.
+          captureOutputOptions.captureGraphics = {
+              width: fig_width,
+              height: fig_height,
+              bg: "white", // default: transparent
+              pointsize: 12,
+              capture: true
+          };
+      }  else {
+          // Disable generating graphics
+          captureOutputOptions.captureGraphics = false;
+      }
+
+      // Store the code to run in history
+      qwebrLogCodeToHistory(codeToRun, options);
+
+      // Setup a webR canvas by making a namespace call into the {webr} package
+      // Evaluate the R code
+      // Remove the active canvas silently
+      const result = await mainWebRCodeShelter.captureR(
+          `${codeToRun}`,
+          captureOutputOptions
+      );
+
+      // -----
+
+      // Start attempting to parse the result data
+      processResultOutput:try {
+
+          // Avoid running through output processing
+          if (options.results === "hide" || options.output === "false") {
+              break processResultOutput;
+          }
+
+          // Merge output streams of STDOUT and STDErr (messages and errors are combined.)
+          // Require both `warning` and `message` to be true to display `STDErr`.
+          const out = result.output
+          .filter(
+              evt => evt.type === "stdout" ||
+              ( evt.type === "stderr" && (options.warning === "true" && options.message === "true"))
+          )
+          .map((evt, index) => {
+              const className = `qwebr-output-code-${evt.type}`;
+              const outputResult = qwebrPrefixComment(processOutput(evt.data), options.comment);
+              return `<code id="${className}-editor-${elements.id}-result-${index + 1}" class="${className}">${outputResult}</code>`;
+          })
+          .join("\n");
+
+
+          // Clean the state
+          // We're now able to process pager events.
+          // As a result, we cannot maintain a true 1-to-1 output order
+          // without individually feeding each line
+          const msgs = await mainWebR.flush();
+
+          // Use `map` to process the filtered "pager" events asynchronously
+          const pager = [];
+          const browse = [];
+
+          await Promise.all(
+              msgs.map(
+                  async (msg) => {
+
+                      const msgType = msg.type || "unknown";
+
+                      switch(msgType) {
+                          case 'pager':
+                              const pager_data = await qwebrParseTypePager(msg);
+                              pager.push(pager_data);
+                              break;
+                          case 'browse':
+                              const browse_data = await qwebrParseTypeBrowse(msg);
+                              browse.push(browse_data);
+                              break;
+                      }
+                      return;
+                  }
+              )
+          );
+
+          // Nullify the output area of content
+          elements.outputCodeDiv.innerHTML = "";
+          elements.outputGraphDiv.innerHTML = "";
+
+          // Design an output object for messages
+          const pre = document.createElement("pre");
+          if (/\S/.test(out)) {
+              // Display results as HTML elements to retain output styling
+              const div = document.createElement("div");
+              div.innerHTML = out;
+
+              // Calculate a scaled font-size value
+              const scaledFontSize = qwebrScaledFontSize(
+                  elements.outputCodeDiv, options);
+
+              // Override output code cell size
+              pre.style.fontSize = `${scaledFontSize}px`;
+              pre.appendChild(div);
+          } else {
+              // If nothing is present, hide the element.
+              pre.style.visibility = "hidden";
+          }
+
+          elements.outputCodeDiv.appendChild(pre);
+
+          // Determine if we have graphs to display
+          if (result.images.length > 0) {
+
+              // Create figure element
+              const figureElement = document.createElement("figure");
+              figureElement.className = "qwebr-canvas-image";
+
+              // Place each rendered graphic onto a canvas element
+              result.images.forEach((img) => {
+
+                  // Construct canvas for object
+                  const canvas = document.createElement("canvas");
+
+                  // Add an image download button
+                  qwebrImageCanvasDownloadButton(canvas, figureElement);
+
+                  // Set canvas size to image
+                  canvas.width = img.width;
+                  canvas.height = img.height;
+
+                  // Apply output truncations
+                  canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
+                  if (options["out-height"]) {
+                      canvas.style.height = options["out-height"];
+                  }
+
+                  // Apply styling
+                  canvas.style.display = "block";
+                  canvas.style.margin = "auto";
+
+                  // Draw image onto Canvas
+                  const ctx = canvas.getContext("2d");
+                  ctx.drawImage(img, 0, 0, img.width, img.height);
+
+                  // Append canvas to figure output area
+                  figureElement.appendChild(canvas);
+
+              });
+
+              if (options['fig-cap']) {
+                  // Create figcaption element
+                  const figcaptionElement = document.createElement('figcaption');
+                  figcaptionElement.innerText = options['fig-cap'];
+                  // Append figcaption to figure
+                  figureElement.appendChild(figcaptionElement);
+              }
+
+              elements.outputGraphDiv.appendChild(figureElement);
+
+          }
+
+          // Display the pager data
+          if (pager.length > 0) {
+              // Use the `pre` element to preserve whitespace.
+              pager.forEach((paged_data, index) => {
+                  const pre_pager = document.createElement("pre");
+                  pre_pager.innerText = paged_data;
+                  pre_pager.classList.add("qwebr-output-code-pager");
+                  pre_pager.setAttribute("id", `qwebr-output-code-pager-editor-${elements.id}-result-${index + 1}`);
+                  elements.outputCodeDiv.appendChild(pre_pager);
+              });
+          }
+
+          // Display the browse data
+          if (browse.length > 0) {
+              // Use the `pre` element to preserve whitespace.
+              browse.forEach((browse_data, index) => {
+                  const iframe_browse = document.createElement('iframe');
+                  iframe_browse.classList.add("qwebr-output-code-browse");
+                  iframe_browse.setAttribute("id", `qwebr-output-code-browse-editor-${elements.id}-result-${index + 1}`);
+                  iframe_browse.style.width = "100%";
+                  iframe_browse.style.minHeight = "500px";
+                  elements.outputCodeDiv.appendChild(iframe_browse);
+
+                  iframe_browse.contentWindow.document.open();
+                  iframe_browse.contentWindow.document.write(browse_data);
+                  iframe_browse.contentWindow.document.close();
+              });
+          }
+      } finally {
+          // Clean up the remaining code
+          mainWebRCodeShelter.purge();
+      }
+  };
+
+  // Function to execute the code (accepts code as an argument)
+  globalThis.qwebrExecuteCode = async function (
+      codeToRun,
+      id,
+      options = {}) {
+
+      // If options are not passed, we fall back on the bare minimum to handle the computation
+      if (qwebrIsObjectEmpty(options)) {
+          options = {
+              "context": "interactive",
+              "fig-width": 7, "fig-height": 5,
+              "out-width": "700px", "out-height": "",
+              "dpi": 72,
+              "results": "markup",
+              "warning": "true", "message": "true",
+          };
+      }
+
+      // Next, we access the compute areas values
+      const elements = {
+          runButton: document.getElementById(`qwebr-button-run-${id}`),
+          outputCodeDiv: document.getElementById(`qwebr-output-code-area-${id}`),
+          outputGraphDiv: document.getElementById(`qwebr-output-graph-area-${id}`),
+          id: id,
+      }
+
+      // Disallowing execution of other code cells
+      document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+          btn.disabled = true;
+      });
+
+      if (options.context == EvalTypes.Interactive) {
+          // Emphasize the active code cell
+          elements.runButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin qwebr-icon-status-spinner"></i> <span>Run Code</span>';
+      }
+
+      // Evaluate the code and parse the output into the document
+      await qwebrComputeEngine(codeToRun, elements, options);
+
+      // Switch to allowing execution of code
+      document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+          btn.disabled = false;
+      });
+
+      if (options.context == EvalTypes.Interactive) {
+          // Revert to the initial code cell state
+          elements.runButton.innerHTML = '<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>';
+      }
+  }
+
+  </script>
 </head>
-
 <body class="quarto-light">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
+<script type="module" id="qwebr-monaco-editor-init">
 
-<div id="quarto-search-results"></div>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="regression-lecture.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
+  // Configure the Monaco Editor's loader
+  require.config({
+    paths: {
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
+    }
+  });
+</script>
+<script type="module">
+// Function to update Monaco Editors when body class changes
+function updateMonacoEditorsOnBodyClassChange() {
+    // Select the body element
+    const body = document.querySelector('body');
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Regression</h1>
-<p class="subtitle lead">STAT 205: Introduction to Mathematical Statistics</p>
-</div>
+    // Options for the observer (which mutations to observe)
+    const observerOptions = {
+        attributes: true,  // Observe changes to attributes
+        attributeFilter: ['class'] // Only observe changes to the 'class' attribute
+    };
 
+    // Callback function to execute when mutations are observed
+    const bodyClassChangeCallback = function(mutationsList, observer) {
+        for(let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                // Class attribute has changed
+                // Update all Monaco Editors on the page
+                updateMonacoEditorTheme();
+            }
+        }
+    };
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(bodyClassChangeCallback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(body, observerOptions);
+}
+
+// Function to update all instances of Monaco Editors on the page
+function updateMonacoEditorTheme() {
+    // Determine what VS Theme to use
+    const vsThemeToUse = document.body.classList.contains("quarto-dark") ? 'vs-dark' : 'vs' ;
+
+    // Iterate through all initialized Monaco Editors
+    qwebrEditorInstances.forEach( function(editorInstance) { 
+        editorInstance.updateOptions({ theme: vsThemeToUse }); 
+    });
+}
+
+// Call the function to start observing changes to body class
+updateMonacoEditorsOnBodyClassChange();
+</script>
+<script type="module">
+// Global array to store Monaco Editor instances
+globalThis.qwebrEditorInstances = [];
+
+function isValidCodeLineNumbers(stringCodeLineNumbers) {
+  // Regular expression to match valid input strings
+  const regex = /^(\d+(-\d+)?)(,\d+(-\d+)?)*$/;
+  return regex.test(stringCodeLineNumbers);
+}
+
+// Function that builds and registers a Monaco Editor instance    
+globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
+
+  const initialCode = cellData.code;
+  const qwebrCounter = cellData.id;
+  const qwebrOptions = cellData.options;
+
+  // Retrieve the previously created document elements
+  let runButton = document.getElementById(`qwebr-button-run-${qwebrCounter}`);
+  let resetButton = document.getElementById(`qwebr-button-reset-${qwebrCounter}`);
+  let copyButton = document.getElementById(`qwebr-button-copy-${qwebrCounter}`);
+  let editorDiv = document.getElementById(`qwebr-editor-${qwebrCounter}`);
+
+  // Load the Monaco Editor and create an instance
+  let editor;
+  require(['vs/editor/editor.main'], function () {
+    editor = monaco.editor.create(editorDiv, {
+      value: initialCode,
+      language: 'r',
+      theme: 'vs-light',
+      automaticLayout: true,           // Works wonderfully with RevealJS
+      scrollBeyondLastLine: false,
+      minimap: {
+        enabled: false
+      },
+      fontSize: qwebrScaledFontSize(editorDiv, qwebrOptions),         
+      renderLineHighlight: "none",      // Disable current line highlighting
+      hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+      readOnly: qwebrOptions['read-only'] ?? false,
+      quickSuggestions: qwebrOptions['editor-quick-suggestions'] ?? false,
+      wordWrap: (qwebrOptions['editor-word-wrap'] == 'true' ? "on" : "off")
+    });
+
+    // Store the official counter ID to be used in keyboard shortcuts
+    editor.__qwebrCounter = qwebrCounter;
+
+    // Store the official div container ID
+    editor.__qwebrEditorId = `qwebr-editor-${qwebrCounter}`;
+
+    // Store the initial code value and options
+    editor.__qwebrinitialCode = initialCode;
+    editor.__qwebrOptions = qwebrOptions;
+
+    // Set at the model level the preferred end of line (EOL) character to LF.
+    // This prevent `\r\n` from being given to the webR engine if the user is on Windows.
+    // See details in: https://github.com/coatless/quarto-webr/issues/94
+    // Associated error text: 
+    // Error: <text>:1:7 unexpected input
+
+    // Retrieve the underlying model
+    const model = editor.getModel();
+    // Set EOL for the model
+    model.setEOL(monaco.editor.EndOfLineSequence.LF);
+    
+    // Dynamically modify the height of the editor window if new lines are added.
+    let ignoreEvent = false;
+    const updateHeight = () => {
+      // Increment editor height by 2 to prevent vertical scroll bar from appearing
+      const contentHeight = editor.getContentHeight() + 2;
+
+      // Retrieve editor-max-height option
+      const maxEditorHeight = qwebrOptions['editor-max-height'];
+
+      // If editor-max-height is missing, allow infinite growth. Otherwise, threshold.
+      const editorHeight = !maxEditorHeight ?  contentHeight : Math.min(contentHeight, maxEditorHeight);
+
+      // We're avoiding a width change
+      //editorDiv.style.width = `${width}px`;
+      editorDiv.style.height = `${editorHeight}px`;
+      try {
+        ignoreEvent = true;
+
+        // The key to resizing is this call
+        editor.layout();
+      } finally {
+        ignoreEvent = false;
+      }
+    };
+
+    // Function to generate decorations to highlight lines
+    // in the editor based on input string.
+    function decoratorHighlightLines(codeLineNumbers) {
+      // Store the lines to be lighlight
+      let linesToHighlight = [];
+      
+      // Parse the codeLineNumbers string to get the line numbers to highlight
+      // First, split the string by commas
+      codeLineNumbers.split(',').forEach(part => {
+        // Check if we have a range of lines
+        if (part.includes('-')) {
+            // Handle range of lines (e.g., "6-8")
+            const [start, end] = part.split('-').map(Number);
+            for (let i = start; i <= end; i++) {
+                linesToHighlight.push(i);
+            }
+        } else {
+            // Handle single line (e.g., "7")
+            linesToHighlight.push(Number(part));
+        }
+      });
   
-    <div class="quarto-title-meta-contents">
-    <p class="author">Dr.&nbsp;Irene Vrbik </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
+      // Create monaco decorations for the lines to highlight
+      const decorations = linesToHighlight.map(lineNumber => ({
+          range: new monaco.Range(lineNumber, 1, lineNumber, 1),
+          options: {
+              isWholeLine: true,
+              className: 'qwebr-editor-highlight-line'
+          }
+      }));
+  
+      // Return decorations to be applied to the editor
+      return decorations;
+    }
+
+    // Ensure that the editor-code-line-numbers option is set and valid
+    // then apply styling
+    if (qwebrOptions['editor-code-line-numbers']) {
+      // Remove all whitespace from the string
+      const codeLineNumbers = qwebrOptions['editor-code-line-numbers'].replace(/\s/g,'');
+      // Check if the string is valid for line numbers, e.g., "1,3-5,7"
+      if (isValidCodeLineNumbers(codeLineNumbers)) {
+        // Apply the decorations to the editor
+        editor.createDecorationsCollection(decoratorHighlightLines(codeLineNumbers));
+      } else {
+        // Warn the user that the input is invalid
+        console.warn(`Invalid "editor-code-line-numbers" value in code cell ${qwebrOptions['label']}: ${codeLineNumbers}`);
+      }
+    }
+
+    // Helper function to check if selected text is empty
+    function isEmptyCodeText(selectedCodeText) {
+      return (selectedCodeText === null || selectedCodeText === undefined || selectedCodeText === "");
+    }
+
+    // Registry of keyboard shortcuts that should be re-added to each editor window
+    // when focus changes.
+    const addWebRKeyboardShortCutCommands = () => {
+      // Add a keydown event listener for Shift+Enter to run all code in cell
+      editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
+
+        // Retrieve all text inside the editor
+        qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, editor.__qwebrOptions);
+      });
+
+      // Add a keydown event listener for CMD/Ctrl+Enter to run selected code
+      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+
+        // Get the selected text from the editor
+        const selectedText = editor.getModel().getValueInRange(editor.getSelection());
+        // Check if no code is selected
+        if (isEmptyCodeText(selectedText)) {
+          // Obtain the current cursor position
+          let currentPosition = editor.getPosition();
+          // Retrieve the current line content
+          let currentLine = editor.getModel().getLineContent(currentPosition.lineNumber);
+
+          // Propose a new position to move the cursor to
+          let newPosition = new monaco.Position(currentPosition.lineNumber + 1, 1);
+
+          // Check if the new position is beyond the last line of the editor
+          if (newPosition.lineNumber > editor.getModel().getLineCount()) {
+            // Add a new line at the end of the editor
+            editor.executeEdits("addNewLine", [{
+            range: new monaco.Range(newPosition.lineNumber, 1, newPosition.lineNumber, 1),
+            text: "\n", 
+            forceMoveMarkers: true,
+            }]);
+          }
+          
+          // Run the entire line of code.
+          qwebrExecuteCode(currentLine, editor.__qwebrCounter, editor.__qwebrOptions);
+
+          // Move cursor to new position
+          editor.setPosition(newPosition);
+        } else {
+          // Code to run when Ctrl+Enter is pressed with selected code
+          qwebrExecuteCode(selectedText, editor.__qwebrCounter, editor.__qwebrOptions);
+        }
+      });
+    }
+
+    // Register an on focus event handler for when a code cell is selected to update
+    // what keyboard shortcut commands should work.
+    // This is a workaround to fix a regression that happened with multiple
+    // editor windows since Monaco 0.32.0 
+    // https://github.com/microsoft/monaco-editor/issues/2947
+    editor.onDidFocusEditorText(addWebRKeyboardShortCutCommands);
+
+    // Register an on change event for when new code is added to the editor window
+    editor.onDidContentSizeChange(updateHeight);
+
+    // Manually re-update height to account for the content we inserted into the call
+    updateHeight();
+
+    // Store the editor instance in the global dictionary
+    qwebrEditorInstances[editor.__qwebrCounter] = editor;
+
+  });
+
+  // Add a click event listener to the run button
+  runButton.onclick = function () {
+    qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, editor.__qwebrOptions);
+  };
+
+  // Add a click event listener to the reset button
+  copyButton.onclick = function () {
+    // Retrieve current code data
+    const data = editor.getValue();
+    
+    // Write code data onto the clipboard.
+    navigator.clipboard.writeText(data || "");
+  };
+  
+  // Add a click event listener to the copy button
+  resetButton.onclick = function () {
+    editor.setValue(editor.__qwebrinitialCode);
+  };
+  
+}
+</script>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Regression</h1>
+  <p class="subtitle">STAT 205: Introduction to Mathematical Statistics</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Dr.&nbsp;Irene Vrbik 
+</div>
+        <p class="quarto-title-affiliation">
             University of British Columbia Okanagan
           </p>
-      </div>
-  </div>
+    </div>
+</div>
 
-<div class="quarto-title-meta">
-
-      
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+</section>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
 <div style="font-size: 90%;">
-<div class="incremental">
-<ul class="incremental">
-<li><p>In this lecture we will introduce Simple Linear Regression (SLR) to model the relationship between two numerical variables.</p></li>
-<li><p>We will quantify the relationship between variables using popular metrics like the Correlation Coefficient and <span class="math inline">\(R^2\)</span> value.</p></li>
-<li><p>Statistical inference for this model will be discussed, and the critical distinction between inference for mean response and inference for the outcome will be clarified.</p></li>
-<li><p>We will also introduce a basic understanding of the multiple regression model.</p></li>
+<ul>
+<li class="fragment"><p>In this lecture we will introduce Simple Linear Regression (SLR) to model the relationship between two numerical variables.</p></li>
+<li class="fragment"><p>We will quantify the relationship between variables using popular metrics like the Correlation Coefficient and <span class="math inline">\(R^2\)</span> value.</p></li>
+<li class="fragment"><p>Statistical inference for this model will be discussed, and the critical distinction between inference for mean response and inference for the outcome will be clarified.</p></li>
+<li class="fragment"><p>We will also introduce a basic understanding of the multiple regression model.</p></li>
 </ul>
 </div>
-</div>
 </section>
-<section id="recall-scatterplots" class="level2">
-<h2 class="anchored" data-anchor-id="recall-scatterplots">Recall: Scatterplots</h2>
-<div>
-<div id="webr-1" class="exercise-cell">
+<section id="recall-scatterplots" class="slide level2">
+<h2>Recall: Scatterplots</h2>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="line-of-best-fit" class="slide level2">
+<h2>Line of Best fit</h2>
 
-</div>
-<script type="webr-1-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImNvbnRleHQiOiJzZXR1cCIsImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiXG50aGVtZV9zZXQodGhlbWVfYncoKSkifQ==
-</script>
-</div>
-<div>
-<div id="webr-2" class="exercise-cell">
+<img data-src="regression-lecture_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="visualization-of-residuals" class="slide level2">
+<h2>Visualization of Residuals</h2>
 
-</div>
-<script type="webr-2-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlfSwiY29kZSI6Ilxuc2V0LnNlZWQoMjAyNSk7IG4gPSA4XG5hdGliIDwtIHRpYmJsZSh4ID0gcm5vcm0oOCksIHkgPSAyICsgNCp4ICsgcm5vcm0obiwgc2QgPSAyKSlcbmF0aWIgJT4lIGdncGxvdChhZXMoeCA9IHgsIHkgPSB5KSkgKyBcbiAgZ2VvbV9wb2ludChjb2xvdXI9XCJyZWRcIiwgc2l6ZSA9IDMpICJ9
-</script>
-</div>
-</section>
-<section id="line-of-best-fit" class="level2">
-<h2 class="anchored" data-anchor-id="line-of-best-fit">Line of Best fit</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a linear model</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> atib)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data with regression line only</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(atib, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>                     <span class="co"># Data points</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co"># Regression line</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span>                                              <span class="co"># Match scatterplot theme</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="cn">NULL</span>)                                        <span class="co"># No title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="regression-lecture_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="visualization-of-residuals" class="level2">
-<h2 class="anchored" data-anchor-id="visualization-of-residuals">Visualization of Residuals</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add fitted values and residuals to the data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>atib <span class="ot">&lt;-</span> atib <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fitted =</span> model<span class="sc">$</span>fitted.values,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">resid =</span> model<span class="sc">$</span>residuals,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"epsilon["</span>, <span class="fu">row_number</span>(), <span class="st">"]"</span>))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(atib, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>                         <span class="co"># Original data points</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span>     <span class="co"># Regression line</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> x, <span class="at">yend =</span> fitted),                   <span class="co"># Residual lines</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> label, <span class="at">y =</span> y <span class="sc">+</span> <span class="fl">0.5</span>), <span class="at">parse =</span> <span class="cn">TRUE</span>) <span class="sc">+</span>   <span class="co"># Epsilon labels</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span>                                                 <span class="co"># Match theme</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="cn">NULL</span>)                                           <span class="co"># Remove title to match scatterplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="regression-lecture_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="what-is-regression" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-regression">What is regression</h2>
+<img data-src="regression-lecture_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section>
+<section id="what-is-regression" class="slide level2">
+<h2>What is regression</h2>
 <div style="font-size: 90%;">
 <p>Regression analysis is a tool to investigate how two or more variables are related.</p>
-<blockquote class="blockquote">
+<blockquote>
 <p><em>“The general objective of a regression analysis is to determine the relationship between two (or more) variables so that we can gain information about one of them through knowing values of the other(s).”</em></p>
 </blockquote>
 <p style="text-align: right;">
-</p><p>Source: Ch 12 of <span class="citation" data-cites="devore2021modern">Devore, Berk, and Carlton (<a href="#ref-devore2021modern" role="doc-biblioref">2021</a>)</span></p>
+</p><p>Source: Ch 12 of <span class="citation" data-cites="devore2021modern">Devore, Berk, and Carlton (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></p>
 <p></p>
 </div>
 </section>
-<section id="variable-types" class="level2">
-<h2 class="anchored" data-anchor-id="variable-types">Variable Types</h2>
+<section id="variable-types" class="slide level2">
+<h2>Variable Types</h2>
 <p>We want to see how a specific <strong>response variable</strong>, <span class="math inline">\(Y\)</span> is affected by one or more <strong>explanatory</strong> <strong>variables</strong> <span class="math inline">\(X_1, \dots, X_p\)</span></p>
-<div class="incremental">
-<ul class="incremental">
-<li><p><span class="math inline">\(Y\)</span> is also known as the <strong>dependent</strong> <strong>variable</strong> or <strong>output variable.</strong> This variable is continuous (i.e.&nbsp;numeric data type)</p></li>
-<li><p><span class="math inline">\(X_i\)</span>’s are also known as <strong>independent/predictor variables</strong> or <strong>features.</strong> These may be continuous or categorical; however, we only consider continuous predictors in this course.</p></li>
+<ul>
+<li class="fragment"><p><span class="math inline">\(Y\)</span> is also known as the <strong>dependent</strong> <strong>variable</strong> or <strong>output variable.</strong> This variable is continuous (i.e.&nbsp;numeric data type)</p></li>
+<li class="fragment"><p><span class="math inline">\(X_i\)</span>’s are also known as <strong>independent/predictor variables</strong> or <strong>features.</strong> These may be continuous or categorical; however, we only consider continuous predictors in this course.</p></li>
 </ul>
-</div>
 </section>
-<section id="section" class="level2 quiz-question">
-<h2 class="quiz-question anchored" data-anchor-id="section"></h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<section id="section" class="slide level2 quiz-question">
+<h2></h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example</strong></p>
 </div>
-<div class="callout-title-container flex-fill">
-Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <div class="exr-height">
 <p>One may wish to use a person’s height, gender and race to predict a person’s weight. What is/are the response variable(s)?</p>
+</div>
 </div>
 </div>
 </div>
@@ -336,20 +2135,17 @@ Example
 <li><span class="correct">Weight</span></li>
 </ul>
 </section>
-<section id="section-1" class="level2 quiz-question">
-<h2 class="quiz-question anchored" data-anchor-id="section-1"></h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<section id="section-1" class="slide level2 quiz-question">
+<h2></h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example</strong></p>
 </div>
-<div class="callout-title-container flex-fill">
-Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <div class="exr-height">
 <p>One may wish to use a person’s height, gender and race to predict a person’s weight. What is/are the dependent variable(s)?</p>
+</div>
 </div>
 </div>
 </div>
@@ -360,56 +2156,75 @@ Example
 <li><span data-explanation="This is the response variable. It would not make sense to use as a depedent variable as well.">Weight</span></li>
 </ul>
 </section>
-<section id="model" class="level2">
-<h2 class="anchored" data-anchor-id="model">Model</h2>
+<section id="model" class="slide level2">
+<h2>Model</h2>
 <p><span class="math display">\[\begin{align}
 Y &amp;= \underbrace{f(X_1, \dots, X_p)}_{\text{deterministic}} + \underbrace{\epsilon}_{\text{random}} \\
 &amp;\phantom{= \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots \beta_p X_p + \epsilon}
 \end{align}\]</span></p>
 </section>
-<section id="model-1" class="level2">
-<h2 class="anchored" data-anchor-id="model-1">Model</h2>
+<section id="model-1" class="slide level2">
+<h2>Model</h2>
 <p><span class="math display">\[\begin{align}
 Y &amp;= \underbrace{f(X_1, \dots, X_p)}_{\text{deterministic}} + \underbrace{\epsilon}_{\text{random}}\\
 &amp;= \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots \beta_p X_p + \epsilon
 \end{align}\]</span></p>
-<p>. . .</p>
+<div class="fragment">
 <p>In a <strong>linear regression model</strong>, the function <span class="math inline">\(f(X_1, \dots, X_p)\)</span> is a <em>linear</em> combination of the explanatory variables.</p>
+</div>
 </section>
-<section id="model-2" class="level2">
-<h2 class="anchored" data-anchor-id="model-2">Model</h2>
+<section id="model-2" class="slide level2">
+<h2>Model</h2>
 <p><span class="math display">\[\begin{align}
 \overset{\overset{\text{response}}{\downarrow}}{Y} &amp;= \beta_0 + \beta_1 \underset{\underset{\text{explanatory}}{\uparrow}}{X_1} + \beta_2 \underset{\underset{\text{explanatory}}{\uparrow}}{X_2} + \dots \beta_p \underset{\underset{\text{explanatory}}{\uparrow}}{X_p} + \epsilon
 \end{align}\]</span></p>
 <div style="font-size: 90%;">
-<div class="incremental">
-<ul class="incremental">
-<li><p><span class="math inline">\(\beta_0\)</span> is the <span class="math inline">\(y\)</span>-intercept</p></li>
-<li><p><span class="math inline">\(\beta_i\)</span> are the regression coefficients, and</p></li>
-<li><p><span class="math inline">\(\epsilon\)</span> are the errors that are assumed <span class="math inline">\(N(0, \sigma)\)</span></p></li>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\beta_0\)</span> is the <span class="math inline">\(y\)</span>-intercept</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_i\)</span> are the regression coefficients, and</p></li>
+<li class="fragment"><p><span class="math inline">\(\epsilon\)</span> are the errors that are assumed <span class="math inline">\(N(0, \sigma)\)</span></p></li>
 </ul>
 </div>
-</div>
-<div class="notes">
+<aside class="notes">
 <p>In statistics, we can describe how variables are related using a mathematical function.</p>
 <p>The function along with other assumptions is called a model.</p>
 <p>There are many models we can consider. In this class, we will focus on linear models, particularly, when there is only one predictor variable.</p>
 <p>We refer to this model as the <strong>simple linear regression model</strong>. (Penn STat 500)</p>
-</div>
-<div class="notes">
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside class="notes">
 <p>as well as modeling numerical response variables using a numerical or categorical explanatory variable.</p>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="simple-linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="simple-linear-regression">Simple Linear Regression</h2>
+<section id="simple-linear-regression" class="slide level2">
+<h2>Simple Linear Regression</h2>
 <ul>
 <li>When <span class="math inline">\(p = 1\)</span>, namely, we are only considering one explanatory variable, our model is called <em>“simple” linear regression (SLR).</em></li>
 <li>When <span class="math inline">\(p&gt;1\)</span> we fall into <em>multiple linear regression (MLR).</em></li>
 </ul>
 <!-- - Let us first consider the "simple" case: using a person's height to predict the person's weight. -->
 </section>
-<section id="slr-model" class="level2">
-<h2 class="anchored" data-anchor-id="slr-model">SLR model</h2>
+<section id="slr-model" class="slide level2">
+<h2>SLR model</h2>
 <p>The SLR model reduces to an equation for of a line:</p>
 <p><span class="math display">\[Y = \beta_0 + \beta_1 X\]</span></p>
 <p>where:</p>
@@ -418,170 +2233,102 @@ Y &amp;= \underbrace{f(X_1, \dots, X_p)}_{\text{deterministic}} + \underbrace{\e
 <li><p><span class="math inline">\(\beta_1\)</span> is the slope</p></li>
 </ul>
 </section>
-<section id="simulation-part-1" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="simulation-part-1">Simulation: Part 1</h2>
-<div>
-<div id="webr-3" class="exercise-cell">
-
-</div>
-<script type="webr-3-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiYmV0YTAgPSBfXyAjIHBpY2sgYSB5LWludGVyY2VwdFxuYmV0YTEgPSBfXyAjIHBpY2sgYSBzbG9wZSJ9
-</script>
-</div>
-<div>
-<div id="webr-4" class="exercise-cell">
-
-</div>
-<script type="webr-4-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibiA9IDIwICMgbnVtYmVyIG9mIHBvaW50cyBcbnggPSBzYW1wbGUoMTAwLCBuKVxueSA9IGJldGEwICsgYmV0YTEqeFxucGxvdCh4LCB5KSJ9
-</script>
-</div>
-<div class="notes">
+<section id="simulation-part-1" class="slide level2 scrollable">
+<h2>Simulation: Part 1</h2>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<aside class="notes">
 <p>This is only the deterministic portion</p>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="comment" class="level2">
-<h2 class="anchored" data-anchor-id="comment">Comment</h2>
+<section id="comment" class="slide level2">
+<h2>Comment</h2>
 <ul>
 <li>We have only code the <em>deterministic</em> portion of this model</li>
 <li>In other words, we are missing <em>random</em> component</li>
 <li>Let’s add some random noise …</li>
 </ul>
 </section>
-<section id="simulation-part-ii" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="simulation-part-ii">Simulation: Part II</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
+<section id="simulation-part-ii" class="slide level2 scrollable">
+<h2>Simulation: Part II</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Warning
+<p><strong>Warning</strong></p>
 </div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <p>Change <code>sd</code> as needed</p>
 </div>
 </div>
-<div>
-<div id="webr-5" class="exercise-cell">
-
 </div>
-<script type="webr-5-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiYmV0YTAgPSAzOyBiZXRhMSA9IDQ7IG4gPSAyMDsgeCA9IHNhbXBsZSgxMDAsIG4pXG5lcHMgPSBybm9ybShuLCBtZWFuID0gMCwgc2QgPSAxNSkgIyByYW5kb20gbm9pc2UgXG55ID0gYmV0YTAgKyBiZXRhMSp4ICsgZXBzICAgICAgICAgIyBsaW5lYXIgbW9kZWwgd2l0aCBub2lzZVxucGxvdCh4LCB5KSAgICAgICAgICAgICAgICAgICAgICAgICMgcGxvdCB0aGUgZGF0YSJ9
-</script>
-</div>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2"></h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><span class="math inline">\(X\)</span>s</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Parameters</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Deterministic</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Noise</a></li></ul>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><span class="math inline">\(X\)</span>s</a></li><li><a href="#tabset-1-2">Parameters</a></li><li><a href="#tabset-1-3">Deterministic</a></li><li><a href="#tabset-1-4">Noise</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="tabset-1-1">
 <p>Create <code>n</code> values for <code>x</code>, for example using:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">max =</span> <span class="dv">10</span>) <span class="co"># or runif() / rnorm()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>x <span class="ot">=</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">max =</span> <span class="dv">10</span>) <span class="co"># or runif() / rnorm()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-meesage="false">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">=</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span>  <span class="co"># add the points</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> beta0, <span class="at">slope =</span> beta1, <span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">25</span>)) <span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"X"</span>, <span class="at">y =</span> <span class="st">"Y"</span>) <span class="sc">+</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(),</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Duplicated aesthetics after name standardisation: colour</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add both point layers</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"firebrick"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 20 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="regression-lecture_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<figure>
+<p><img data-src="regression-lecture_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="tabset-1-2">
 <p>For <span class="math inline">\(\beta_0\)</span> = <code>beta0</code> = 3, <span class="math inline">\(\beta_1\)</span> = <code>beta1</code> = 4, we have</p>
 <p><span class="math display">\[Y = 3 + 4 \cdot X\]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">=</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span>  <span class="co"># add the points</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> beta0, <span class="at">slope =</span> beta1, <span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">25</span>)) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"X"</span>, <span class="at">y =</span> <span class="st">"Y"</span>) <span class="sc">+</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Add both point layers</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> </span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"firebrick"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 20 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="regression-lecture_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figure>
+<p><img data-src="regression-lecture_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="tabset-1-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add both point layers</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> beta0 <span class="sc">+</span> beta1<span class="sc">*</span>x), <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"firebrick"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 20 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="regression-lecture_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figure>
+<p><img data-src="regression-lecture_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="tabset-1-4">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add both point layers</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"firebrick"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 20 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="regression-lecture_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<figure>
+<p><img data-src="regression-lecture_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -590,448 +2337,556 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiYmV0YTAgPSAzOyBiZXRhMSA9
 </div>
 </div>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 
-<script type="webr-data">
-eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjQvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsInRpYmJsZSIsImdncGxvdDIiXSwicmVwb3MiOltdfSwicmVuZGVyX2RmIjoiZGVmYXVsdCJ9
-</script>
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC01IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV81O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzUgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici01LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItNS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV81ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl81LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTQiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl80ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNC1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTQtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfNCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNCwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTMiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzM7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMyA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0zLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzMgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzMsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8yLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMS1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTEtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMSwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IndlYlJPanMgPSB7XG4gIGNvbnN0IHsgV2ViUiwgQ2hhbm5lbFR5cGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWUuV2ViUjtcbiAgY29uc3Qge1xuICAgIFdlYlJFdmFsdWF0b3IsXG4gICAgV2ViUkVudmlyb25tZW50TWFuYWdlcixcbiAgICBzZXR1cFIsXG4gICAgYjY0RGVjb2RlLFxuICAgIGNvbGxhcHNlUGF0aFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gd2ViUiBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICAvLyBVc2UgUG9zdE1lc3NhZ2UgY2hhbm5lbCBmb3IgYXN5bmMgY29tbXVuaWNhdGlvblxuICAvLyBXZSBkbyBub3QgZXhwZWN0IHRvIHRha2UgbmVzdGVkIHByb21wdCBpbnB1dCBpbiBRdWFydG8gTGl2ZSBjZWxsc1xuICBkYXRhLm9wdGlvbnMuY2hhbm5lbFR5cGUgPSBDaGFubmVsVHlwZS5Qb3N0TWVzc2FnZTtcblxuICAvLyBJbml0aWFsaXNlIHdlYlIgYW5kIHNldHVwIGZvciBSIGNvZGUgZXZhbHVhdGlvblxuICBsZXQgd2ViUlByb21pc2UgPSAoYXN5bmMgKHdlYlIpID0+IHtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHdlYlJgO1xuICAgIGF3YWl0IHdlYlIuaW5pdCgpO1xuXG4gICAgLy8gSW5zdGFsbCBwcm92aWRlZCBsaXN0IG9mIHBhY2thZ2VzXG4gICAgLy8gRW5zdXJlIHdlYlIgZGVmYXVsdCByZXBvIGlzIGluY2x1ZGVkXG4gICAgZGF0YS5wYWNrYWdlcy5yZXBvcy5wdXNoKFwiaHR0cHM6Ly9yZXBvLnItd2FzbS5vcmdcIilcbiAgICBhd2FpdCBkYXRhLnBhY2thZ2VzLnBrZ3MubWFwKChwa2cpID0+ICgpID0+IHtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcGFja2FnZTogJHtwa2d9YDtcbiAgICAgIHJldHVybiB3ZWJSLmV2YWxSVm9pZChgXG4gICAgICAgIHdlYnI6Omluc3RhbGwocGtnLCByZXBvcyA9IHJlcG9zKVxuICAgICAgICBsaWJyYXJ5KHBrZywgY2hhcmFjdGVyLm9ubHkgPSBUUlVFKVxuICAgICAgYCwgeyBlbnY6IHtcbiAgICAgICAgcGtnOiBwa2csXG4gICAgICAgIHJlcG9zOiBkYXRhLnBhY2thZ2VzLnJlcG9zLFxuICAgICAgfX0pO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgLy8gRG93bmxvYWQgYW5kIGluc3RhbGwgcmVzb3VyY2VzXG4gICAgYXdhaXQgZmlsZXMubWFwKChmaWxlKSA9PiBhc3luYyAoKSA9PiB7XG4gICAgICBjb25zdCBuYW1lID0gZmlsZS5zdWJzdHJpbmcoZmlsZS5sYXN0SW5kZXhPZignLycpICsgMSk7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHJlc291cmNlOiAke25hbWV9YDtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goZmlsZSk7XG4gICAgICBpZiAoIXJlc3BvbnNlLm9rKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgQ2FuJ3QgZG93bmxvYWQgXFxgJHtmaWxlfVxcYC4gRXJyb3IgJHtyZXNwb25zZS5zdGF0dXN9OiBcIiR7cmVzcG9uc2Uuc3RhdHVzVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXNwb25zZS5hcnJheUJ1ZmZlcigpO1xuXG4gICAgICAvLyBTdG9yZSBVUkxzIGluIHRoZSBjd2Qgd2l0aG91dCBhbnkgc3ViZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgaWYgKGZpbGUuaW5jbHVkZXMoXCI6Ly9cIikpIHtcbiAgICAgICAgZmlsZSA9IG5hbWU7XG4gICAgICB9XG5cbiAgICAgIC8vIENvbGxhcHNlIGhpZ2hlciBkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBmaWxlID0gY29sbGFwc2VQYXRoKGZpbGUpO1xuXG4gICAgICAvLyBDcmVhdGUgZGlyZWN0b3J5IHRyZWUsIGlnbm9yaW5nIFwiZGlyZWN0b3J5IGV4aXN0c1wiIFZGUyBlcnJvcnNcbiAgICAgIGNvbnN0IHBhcnRzID0gZmlsZS5zcGxpdCgnLycpLnNsaWNlKDAsIC0xKTtcbiAgICAgIGxldCBwYXRoID0gJyc7XG4gICAgICB3aGlsZSAocGFydHMubGVuZ3RoID4gMCkge1xuICAgICAgICBwYXRoICs9IHBhcnRzLnNoaWZ0KCkgKyAnLyc7XG4gICAgICAgIGNvbnN0IGFuYWx5c2lzID0gYXdhaXQgd2ViUi5GUy5hbmFseXplUGF0aChwYXRoKTtcbiAgICAgICAgaWYgKCFhbmFseXNpcy5leGlzdHMpIHtcbiAgICAgICAgICB0cnkge1xuICAgICAgICAgICAgYXdhaXQgd2ViUi5GUy5ta2RpcihwYXRoKTtcbiAgICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3I6IFwiJHtlLm1lc3NhZ2V9XCIuYCk7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIC8vIFdyaXRlIHRoaXMgZmlsZSB0byB0aGUgVkZTXG4gICAgICByZXR1cm4gYXdhaXQgd2ViUi5GUy53cml0ZUZpbGUoZmlsZSwgbmV3IFVpbnQ4QXJyYXkoZGF0YSkpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbnN0YWxsaW5nIHdlYlIgc2hpbXNgO1xuICAgIGF3YWl0IHdlYlIuZXZhbFJWb2lkKGB3ZWJyOjpzaGltX2luc3RhbGwoKWApO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBXZWJSIGVudmlyb25tZW50IHNldHVwYDtcbiAgICBhd2FpdCBzZXR1cFIod2ViUiwgZGF0YSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gd2ViUjtcbiAgfSkobmV3IFdlYlIoZGF0YS5vcHRpb25zKSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHdlYlIgPSBhd2FpdCB3ZWJSUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgV2ViUkV2YWx1YXRvcih3ZWJSLCBjb250ZXh0KVxuICAgIGF3YWl0IGV2YWx1YXRvci5wcm9jZXNzKGlucHV0cyk7XG4gICAgcmV0dXJuIGV2YWx1YXRvci5jb250YWluZXI7XG4gIH1cblxuICByZXR1cm4ge1xuICAgIHByb2Nlc3MsXG4gICAgd2ViUlByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gIH07XG59XG4ifV19
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-devore2021modern" class="csl-entry" role="listitem">
 Devore, J. L., K. N. Berk, and M. A. Carlton. 2021. <em>Modern Mathematical Statistics with Applications</em>. Springer Texts in Statistics. Springer International Publishing. <a href="https://books.google.ca/books?id=ghcsEAAAQBAJ">https://books.google.ca/books?id=ghcsEAAAQBAJ</a>.
 </div>
-</div></section></div></main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../course_skeleton/lectures";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "../..";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nishanmudalige\.github\.io\/STA258_Tutorials\/");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
+</div>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-quiz/quiz.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'quiz': {"checkKey":"c","resetKey":"q","shuffleKey":"t","allowNumberKeys":true,"disableOnCheck":false,"shuffleOptions":true,"defaultCorrect":"","defaultIncorrect":"","includeScore":false,"disableReset":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
         },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealQuiz, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
       });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
         }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
             }
           }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          return note.innerHTML;
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
         }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/nishanmudalige\.github\.io\/STA258_Tutorials\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
         }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
             }
           } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
             });
           }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
         }
-      }, function(instance) {
       });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
+      </script>
+    <script type="module">
+    // Handle cell initialization initialization
+    qwebrCellDetails.map(
+      (entry) => {
+        // Handle the creation of the element
+        qwebrCreateHTMLElement(entry);
+        // In the event of interactive, initialize the monaco editor
+        if (entry.options.context == EvalTypes.Interactive) {
+          qwebrCreateMonacoEditorInstance(entry);
         }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
       }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-</div> <!-- /content -->
+    );
+
+    // Identify non-interactive cells (in order)
+    const filteredEntries = qwebrCellDetails.filter(entry => {
+      const contextOption = entry.options && entry.options.context;
+      return ['output', 'setup'].includes(contextOption) || (contextOption == "interactive" && entry.options && entry.options.autorun === 'true');
+    });
+
+    // Condition non-interactive cells to only be run after webR finishes its initialization.
+    qwebrInstance.then(
+      async () => {
+        const nHiddenCells = filteredEntries.length;
+        var currentHiddenCell = 0;
 
 
+        // Modify button state
+        qwebrSetInteractiveButtonState(`🟡 Running hidden code cells ...`, false);
 
+        // Begin processing non-interactive sections
+        // Due to the iteration policy, we must use a for() loop.
+        // Otherwise, we would need to switch to using reduce with an empty
+        // starting promise
+        for (const entry of filteredEntries) {
+
+          // Determine cell being examined
+          currentHiddenCell = currentHiddenCell + 1;
+          const formattedMessage = `Evaluating hidden cell ${currentHiddenCell} out of ${nHiddenCells}`;
+
+          // Update the document status header
+          if (qwebrShowStartupMessage) {
+            qwebrUpdateStatusHeader(formattedMessage);
+          }
+
+          // Display the update in non-active areas
+          qwebrUpdateStatusMessage(formattedMessage);
+
+          // Extract details on the active cell
+          const evalType = entry.options.context;
+          const cellCode = entry.code;
+          const qwebrCounter = entry.id;
+
+          if (['output', 'setup'].includes(evalType)) {
+            // Disable further global status updates
+            const activeContainer = document.getElementById(`qwebr-non-interactive-loading-container-${qwebrCounter}`);
+            activeContainer.classList.remove('qwebr-cell-needs-evaluation');
+            activeContainer.classList.add('qwebr-cell-evaluated');
+
+            // Update status on the code cell
+            const activeStatus = document.getElementById(`qwebr-status-text-${qwebrCounter}`);
+            activeStatus.innerText = " Evaluating hidden code cell...";
+            activeStatus.classList.remove('qwebr-cell-needs-evaluation');
+            activeStatus.classList.add('qwebr-cell-evaluated');
+          }
+
+          switch (evalType) {
+            case 'interactive':
+              // TODO: Make this more standardized.
+              // At the moment, we're overriding the interactive status update by pretending its
+              // output-like. 
+              const tempOptions = entry.options;
+              tempOptions["context"] = "output"
+              // Run the code in a non-interactive state that is geared to displaying output
+              await qwebrExecuteCode(`${cellCode}`, qwebrCounter, tempOptions);
+              break;
+            case 'output':
+              // Run the code in a non-interactive state that is geared to displaying output
+              await qwebrExecuteCode(`${cellCode}`, qwebrCounter, entry.options);
+              break;
+            case 'setup':
+              const activeDiv = document.getElementById(`qwebr-noninteractive-setup-area-${qwebrCounter}`);
+
+              // Store code in history
+              qwebrLogCodeToHistory(cellCode, entry.options);
+
+              // Run the code in a non-interactive state with all output thrown away
+              await mainWebR.evalRVoid(`${cellCode}`);
+              break;
+            default: 
+              break; 
+          }
+
+          if (['output', 'setup'].includes(evalType)) {
+            // Disable further global status updates
+            const activeContainer = document.getElementById(`qwebr-non-interactive-loading-container-${qwebrCounter}`);
+            // Disable visibility
+            activeContainer.style.visibility = 'hidden';
+            activeContainer.style.display = 'none';
+          }
+        }
+      }
+    ).then(
+      () => {
+        // Release document status as ready
+
+        if (qwebrShowStartupMessage) {
+          qwebrStartupMessage.innerText = "🟢 Ready!"
+        }
+      
+        qwebrSetInteractiveButtonState(
+          `<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>`, 
+          true
+        );  
+      }
+    );
+    </script>
+    
 
 </body></html>
