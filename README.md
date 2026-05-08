@@ -2,7 +2,7 @@
 ---
 ## Team Members
 
-| Role | Name | GitHub | Contribution |
+| Role | Name | GitHub | Contributions |
 |---|---|---|---|
 | **Team Leader** | [Dave Riegert](https://github.com/driegert) | [![Follow @driegert](https://img.shields.io/badge/Follow-%40driegert-lightgrey?logo=github)](https://github.com/driegert) | Provided training, led group and wrote instructions in the README file. |
 | **Contributor** | [Kyran Kupido](https://github.com/cupidok) | [![Follow @cupidok](https://img.shields.io/badge/Follow-%40cupidok-lightgrey?logo=github)](https://github.com/cupidok) | Added sample activities and simulations. |
