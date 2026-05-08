@@ -1,11 +1,23 @@
-# cancots2025_webr
-WebR templates and instructions from CanCOTS 2025 in Montreal (June 10-12).
+# CanCOTS 2025 - learnr Working Sub-Group
+---
+## Team Members
 
-You can view a template for a sample course by [clicking here](https://nishanmudalige.github.io/CanCOTS_2025_Interactive_R_Tutorials/)
+| Role | Name | GitHub | Contribution |
+|---|---|---|---|
+| **Team Leader** | [Dave Riegert](https://github.com/driegert) | [![Follow @driegert](https://img.shields.io/badge/Follow-%40driegert-lightgrey?logo=github)](https://github.com/driegert) | Provided training, led group and wrote instructions in the README file. |
+| **Contributor** | [Kyran Kupido](https://github.com/cupidok) | [![Follow @cupidok](https://img.shields.io/badge/Follow-%40cupidok-lightgrey?logo=github)](https://github.com/cupidok) | Added sample activities and simulations. |
+| **Contributor** | [Nishan Mudalige](https://github.com/nishanmudalige) | [![Follow @nishanmudalige](https://img.shields.io/badge/Follow-%40nishanmudalige-lightgrey?logo=github)](https://github.com/nishanmudalige) | Added sample tutorials and created this web page. |
+| **Contributor** | [Irene Vrbik](https://github.com/vrbiki) | [![Follow @vrbiki](https://img.shields.io/badge/Follow-%40vrbiki-lightgrey?logo=github)](https://github.com/vrbiki) | Created the skeleton course with sample slides. |
+| **Participant** | [Allan Majdanac](https://github.com/majdanaca) | [![Follow @vrbiki](https://img.shields.io/badge/Follow-%40majdanaca-lightgrey?logo=github)](https://github.com/majdanaca) | Testing. |
 
-The steps below are from [https://quarto-webr.thecoatlessprofessor.com/](https://quarto-webr.thecoatlessprofessor.com/).
+---
+This repository contains WebR templates and instructions from CanCOTS 2025 in Montreal (10-12 June 2025).
+
+A template for a sample course can be viewed by [clicking here](https://nishanmudalige.github.io/CanCOTS_2025_Interactive_R_Tutorials/)
 
 # Prerequisites
+
+The steps below are from [https://quarto-webr.thecoatlessprofessor.com/](https://quarto-webr.thecoatlessprofessor.com/).
 
 ## Software
 
@@ -38,7 +50,7 @@ You will need the following:
 If you don't have a Github account, create one by going to [https://github.com/](https://github.com/)
   - go to "Sign up" in the top right corner
 
-## Fork the `cancots2025_webr` Repository
+## Fork the `CanCOTS_2025_Interactive_R_Tutorials` Repository
 
 Next, fork the repository to your own GitHub account by clicking the "Fork" button in the top right corner of this page. This will create a copy of the repository in your account.
 
