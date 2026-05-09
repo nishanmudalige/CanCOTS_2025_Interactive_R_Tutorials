@@ -35,6 +35,7 @@ The schedule below is tentative and may be adjusted as the course progresses.
 | Week | Topic | Materials |
 |-----------------------:|:-----------------------|------------------------|
 | 1 | Coin Flipping activity | [Activity](activities/activity_coins.html) |
+| 2 | Introduction to visuals | [Activity](activities/activity_intro_to_visuals.html) |
 
 : *The tentative course schedule for interactive activities and simulations with R* {#tbl-activitysched}
 

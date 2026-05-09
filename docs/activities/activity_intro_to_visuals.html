@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nishan Mudalige">
+<meta name="author" content="Instructor">
 
-<title>Tutorial: Regression Analaysis with R – Course Tutorials</title>
+<title>In-Class Activity: Summarizing Numerical Data – Course Tutorials</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
@@ -345,7 +347,7 @@ iframe.qwebr-output-code-browse {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['tibble', 'ggplot2', 'palmerpenguins', 'skimr', 'dplyr', 'mosaic'];
+globalThis.qwebrInstallRPackagesList = ['pixarfilms'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -367,7 +369,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"penguins = penguins %>% filter(complete.cases(.))\n\nglimpse(penguins)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie =  penguins %>% filter(species == \"Adelie\") %>% mutate(species = as.character(species))\n\nfavstats(body_mass_g ~ species + sex, data = Adelie, var.equal = T)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie %>% \n  ggplot(aes(x = body_mass_g, fill = sex)) + \n  geom_boxplot() +\n  coord_flip()","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"  Adelie %>% ggplot(aes(x = body_mass_g, fill = sex)) + \n  geom_histogram(alpha = 0.5)","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"false","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"t.test(Adelie$body_mass_g ~ Adelie$sex)","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie %>% \n  ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +\n  geom_point(col=\"#F8766D\") +\n  xlab(\"Body mass (g)\") +\n  ylab(\"Flipper Length (mm)\") +\n  ggtitle(\"Scatter plot of Flipper Length vs. Body mass \\nfor the Adelie Penguins\") +\n  theme(plot.title = element_text(hjust = 0.5))","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie_lm = lm(flipper_length_mm ~ body_mass_g, data = Adelie)\n\nsummary(Adelie_lm)","id":7,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-7","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie %>% \n  ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +\n  geom_point(col = \"#F8766D\") +\n  geom_smooth(method = 'lm', formula = y ~ x, col = \"#F8766D\", se = F) + \n  xlab(\"Body mass (g)\") +\n  ylab(\"Flipper Length (mm)\") +\n  ggtitle(\"Scatter plot of Flipper Length vs. Body mass \\nfor the Adelie Penguins\") +\n  theme(plot.title = element_text(hjust = 0.5))","id":8,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-8","message":"false","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie %>% \n  ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +\n  geom_point(aes(colour = factor(sex))) +\n  xlab(\"Body mass (g)\") +\n  ylab(\"Flipper Length (mm)\") +\n  ggtitle(\"Scatter plot of Flipper Length vs. Body mass \\nfor the Adelie Penguins\") +\n  theme(plot.title = element_text(hjust = 0.5)) +\n  theme(legend.position=\"bottom\") +\n  labs(colour = \"Sex\")","id":9,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-9","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie_indicator = lm(flipper_length_mm ~ body_mass_g + sex, data = Adelie)\n\nsummary(Adelie_indicator)","id":10,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-10","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"penguins %>%\n  filter(species == \"Adelie\", !is.na(sex)) %>%\n  ggplot(aes(x = body_mass_g, y = flipper_length_mm, color = sex)) +\n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE, fullrange = TRUE\n  ) +\n  labs(\n    title    = \"Flipper Length vs Body Mass for Adelie Penguins\",\n    subtitle = \"Extended regression lines by sex\",\n    x        = \"Body mass (g)\",\n    y        = \"Flipper length (mm)\",\n    color    = \"Sex\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title    = element_text(hjust = 0.5, size = 16, face = \"bold\"),\n    plot.subtitle = element_text(hjust = 0.5),\n    legend.position = \"bottom\"\n  )","id":11,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-11","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(pixarfilms)\n\npixar<-pixar_films |> \n  full_join(box_office,by=\"film\") |> \n  full_join(public_response,by=\"film\") |> \n  select(film, release_date, run_time, rotten_tomatoes, box_office_worldwide,  budget ) |> \n  na.omit()\n  \nattach(pixar)","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"mean(run_time)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"plot()","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"barplot(rotten_tomatoes)","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"hist(rotten_tomatoes)","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"boxplot(rotten_tomatoes)","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -1621,62 +1623,17 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
-<body class="floating quarto-light">
+<body class="fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of Contents</h2>
-   
-  <ul class="collapse">
-  <li><a href="#a-sample-lecture-for-an-introduction-to-regression" id="toc-a-sample-lecture-for-an-introduction-to-regression" class="nav-link active" data-scroll-target="#a-sample-lecture-for-an-introduction-to-regression">A Sample Lecture for an Introduction to Regression</a>
-  <ul class="collapse">
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory data analysis</a></li>
-  <li><a href="#sample-hypothesis-test" id="toc-sample-hypothesis-test" class="nav-link" data-scroll-target="#sample-hypothesis-test">2-Sample Hypothesis Test</a></li>
-  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link" data-scroll-target="#simple-linear-regression">Simple Linear Regression</a></li>
-  </ul></li>
-  </ul>
-</nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
@@ -1966,8 +1923,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tutorial: Regression Analaysis with R</h1>
-<p class="subtitle lead">A tutorial on regression analysis with R</p>
+<h1 class="title">In-Class Activity: Summarizing Numerical Data</h1>
 </div>
 
 
@@ -1976,11 +1932,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Nishan Mudalige </p>
+    <p class="author">Instructor </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            University of Toronto
+            School
           </p>
       </div>
   </div>
@@ -1997,138 +1953,282 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="a-sample-lecture-for-an-introduction-to-regression" class="level1">
-<h1>A Sample Lecture for an Introduction to Regression</h1>
-<p>This is a sample lecture on regression. For this example, we set <code>packages: ["tibble", "dplyr", "ggplot2", "palmerpenguins", "mosaic]</code>.</p>
-<section id="exploratory-data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
-<p>This example is on the <code>palmerpenguins</code> data set.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/adeliepenguin.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Adelie Penguin.jpg" data-fig-cap="An Adelie penguin (creative commons license)"></p>
-</figure>
-</div>
-<p>Let’s examine the data set. For simplicity, we will use complete cases for this tutorial.</p>
+<p>This script will provide a quick demonstration of summarizing data visually.</p>
+<section id="pixar-data" class="level2">
+<h2 class="anchored" data-anchor-id="pixar-data">Pixar Data</h2>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="sample-hypothesis-test" class="level2">
-<h2 class="anchored" data-anchor-id="sample-hypothesis-test">2-Sample Hypothesis Test</h2>
-<p>We would like to perform a t-test on the body mass of male and female Adelie penguins. Let’s start with some initial data analysis.</p>
+<p>The data we will be looking at contains information about Pixar films released prior to 2021, as provided by Wikipedia. The following variables were collected for each film:</p>
+<ul>
+<li><code>film</code>: The name of the film.</li>
+<li><code>release_date</code>: The date the film premiered.</li>
+<li><code>run_time</code>: The length of the film in minutes.</li>
+<li><code>rotten_tomatoes</code>: Score from the review-aggregation website Rotten Tomatoes; scored out of 100.</li>
+<li><code>box_office_worldwide</code>: Box office gross amount in U.S. dollars worldwide.</li>
+<li><code>budget</code>: Movie budget in U.S. dollars.</li>
+</ul>
+<p>The data can be found in the following table:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">film</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">release_date</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">run_time</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">rotten_tomatoes</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">box_office_worldwide</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">budget</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Toy Story</td>
+<td style="text-align: left;">1995-11-22</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">373,554,033</td>
+<td style="text-align: right;">30,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A Bug's Life</td>
+<td style="text-align: left;">1998-11-25</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">363,258,859</td>
+<td style="text-align: right;">120,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Toy Story 2</td>
+<td style="text-align: left;">1999-11-24</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">497,374,776</td>
+<td style="text-align: right;">90,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Monsters, Inc.</td>
+<td style="text-align: left;">2001-11-02</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">632,316,649</td>
+<td style="text-align: right;">115,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Finding Nemo</td>
+<td style="text-align: left;">2003-05-30</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">871,014,978</td>
+<td style="text-align: right;">94,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Incredibles</td>
+<td style="text-align: left;">2004-11-05</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">631,606,713</td>
+<td style="text-align: right;">92,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cars</td>
+<td style="text-align: left;">2006-06-09</td>
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">461,983,149</td>
+<td style="text-align: right;">120,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ratatouille</td>
+<td style="text-align: left;">2007-06-29</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">623,726,085</td>
+<td style="text-align: right;">150,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WALL-E</td>
+<td style="text-align: left;">2008-06-27</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">521,311,860</td>
+<td style="text-align: right;">180,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Up</td>
+<td style="text-align: left;">2009-05-29</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">735,099,082</td>
+<td style="text-align: right;">175,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Toy Story 3</td>
+<td style="text-align: left;">2010-06-18</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">1,066,969,703</td>
+<td style="text-align: right;">200,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cars 2</td>
+<td style="text-align: left;">2011-06-24</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">559,852,396</td>
+<td style="text-align: right;">200,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brave</td>
+<td style="text-align: left;">2012-06-22</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">538,983,207</td>
+<td style="text-align: right;">185,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Monsters University</td>
+<td style="text-align: left;">2013-06-21</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">743,559,607</td>
+<td style="text-align: right;">200,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Inside Out</td>
+<td style="text-align: left;">2015-06-19</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">857,611,174</td>
+<td style="text-align: right;">175,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Good Dinosaur</td>
+<td style="text-align: left;">2015-11-25</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">332,207,671</td>
+<td style="text-align: right;">175,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Finding Dory</td>
+<td style="text-align: left;">2016-06-17</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">1,028,570,889</td>
+<td style="text-align: right;">200,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cars 3</td>
+<td style="text-align: left;">2017-06-16</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">383,930,656</td>
+<td style="text-align: right;">175,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Coco</td>
+<td style="text-align: left;">2017-11-22</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">807,082,196</td>
+<td style="text-align: right;">175,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Incredibles 2</td>
+<td style="text-align: left;">2018-06-15</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">1,242,805,359</td>
+<td style="text-align: right;">200,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Toy Story 4</td>
+<td style="text-align: left;">2019-06-21</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">1,073,394,593</td>
+<td style="text-align: right;">200,000,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Onward</td>
+<td style="text-align: left;">2020-03-06</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">141,950,121</td>
+<td style="text-align: right;">175,000,000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soul</td>
+<td style="text-align: left;">2020-12-25</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">135,435,315</td>
+<td style="text-align: right;">175,000,000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
+<p>The following functions are useful for summarizing <strong>numerical data</strong>: <code>mean</code>, <code>median</code>, <code>min</code>, <code>max</code>, <code>range</code>, <code>sd</code>, <code>var</code>, <code>fivenum</code></p>
+<p>Try them here:</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>let’s examine side-by-side boxplots and histograms of the mass of male and female Adelie penguins. For simplicity, we’ll remove the data points where information is missing.</p>
+</section>
+<section id="basic-plots" class="level3">
+<h3 class="anchored" data-anchor-id="basic-plots">Basic Plots</h3>
+<p>There is a generic <code>plot</code> function in R which is useful for creating quick visualizations of a data set. If you pass one numeric variable into this function, a quick plot will be made by creating a point for each observation in the order they occur in the data frame (index). Passing two numeric variables into this function will create a scatterplot, with the first variable corresponding to the x-axis and the second corresponding to the y-axis.</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>There are some arguments we can add to the <code>plot</code> function to make our visualizations more informative:</p>
+<ul>
+<li>main = “Title of the Graph”</li>
+<li>xlab = “x-axis label”</li>
+<li>ylab = “y-axis label”</li>
+<li>xlim = c(0,100) (changing the values on the x-axis)</li>
+<li>ylim = c(0,100) (changing the values on the y-axis)</li>
+<li>col = “colour” (full list of colours can be found <a href="https://r-charts.com/colors/"><strong>here</strong></a>)</li>
+<li>pch = number (list of potential shapes for points can be found <a href="https://r-charts.com/base-r/pch-symbols/"><strong>here</strong></a>)</li>
+</ul>
+<p>We can even add text to our plots by incorporating the <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/text"><strong>text function</strong></a>.</p>
+</section>
+<section id="barplots" class="level3">
+<h3 class="anchored" data-anchor-id="barplots">Barplots</h3>
+<p>To draw a basic bar graph, we can simply use the <code>barplot</code> function and specify which variable it is that we want to represent the height of the bars. For example, we can use the following code to quickly plot the Rotten Tomatoes score for each of the Pixar movies:</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Let’s conduct the following test on whether the mean body mass of male Adelie penguins is equal to the mean body mass of female Adelie penguins, or whether there is a difference.</p>
-<p>The null and alternative hypothesis are <span class="math display">\[
-  H_{0}: \mu_{\text{male}} = \mu_{\text{female}}
-  \quad
-  H_{a}: \mu_{\text{male}} \neq \mu_{\text{female}}
-\]</span></p>
+<p>There are some arguments we can add to the <code>barplot</code> function to make our bar graph more informative.</p>
+<ul>
+<li>horiz = T (draw the bars horizontally)</li>
+<li>name = variable to label the bars</li>
+<li>las = 2 (rotates the labels)</li>
+<li>cex.names = 0.5 (change the labels font size)</li>
+</ul>
+</section>
+<section id="histograms" class="level3">
+<h3 class="anchored" data-anchor-id="histograms">Histograms</h3>
+<p>We can create histograms of the data using the <code>hist</code> function. For example, we can use the following code to quickly create a histogram of the Rotten Tomatoes scores for the Pixar movies:</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Arguments we can add to the <code>hist</code> function to make our graph more informative.</p>
+<ul>
+<li>breaks = number (number of bars displayed)</li>
+<li>labels = T (add numbers to bars)</li>
+</ul>
 </section>
-<section id="simple-linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="simple-linear-regression">Simple Linear Regression</h2>
-<p>Recall the simple linear regression model is</p>
-<p><span class="math display">\[
-Y = \beta_{0} + \beta_{1} X + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2)
-\]</span> This is estimated using <span class="math display">\[
-\hat{y} = \hat{\beta}_{0} + \hat{\beta}_{1}x
-\]</span></p>
-<p>For the Adelie penguins, let’s examine whether there is a linear relationship between the <code>bill_length</code> and <code>body_mass_g</code> of the Adelie penguins. We’ll start with a scatterplot of the data.</p>
+<section id="boxplots" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots">Boxplots</h3>
+<p>The <code>boxplot</code> function can be used to (unsurprisingly) create boxplots. Keeping with our Rotten Tomatoes examples:</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>There appears to be a positive linear relationship between body mass and flipper length. Let’s get the least squares regression line:</p>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>The equation of the regression line is:</p>
-<p><span class="math display">\[
-  \hat{y}_{\text{flipper length}} = 165.2
-    + 0.007 x_{\text{mass}}
-\]</span></p>
-<p>Let’s superimpose the least squares line on the plot:</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Let’s see if there is a difference between the flipper length of male and female flipper lengths:</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>There appers to be a difference for male and female penguins. Let’s create a new model with <code>sex</code> as an indicator variable.</p>
-<p><span class="math display">\[
-  \hat{y}_{\text{flipper length}} = \hat{\beta}_0
-    + \hat{\beta}_{\text{mass}} x_{\text{mass}}
-    + \hat{\beta}_{\text{sex}} x_{\text{sex}}
-\]</span> where</p>
-<p><span class="math display">\[
-x_{\text{sex}} =
-  \begin{cases}
-    1, \text{ if sex is } \texttt{male}; \\
-    0, \text{ if sex is } \texttt{female}
-  \end{cases}
-\]</span></p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>From the output above, we see our model is</p>
-<p><span class="math display">\[
-  \hat{y}_{\text{flipper length}} = 165.2
-    + 0.006 x_{\text{mass}}
-    + 0.344 x_{\text{sex}}
-\]</span></p>
-<p>If we add both lines to the scatter plot we get the following.</p>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>From both the plot and the R output, we observe the itnteraction effect is not significant.</p>
-<!--
-## A Slide Title
-
-```rnbpxfmd
-#| context: setup
-#| autorun: true
-set.seed(1234)
-```
-
-```rnbpxfmd
-#| autorun: true
-
-atib <- tibble(x = rnorm(10), y = 2 + 4*x + rnorm(10))
-atib %>% ggplot(aes(x = x, y = y)) + 
-  geom_point()
-```
-
-## A second slide {style="font-size:70%;" .scrollable}
-
-
-```rnbpxfmd
-#| autorun: false
-
-________ %>% ggplot(aes(x = ____)) + 
-  geom_histogram(colour = "white", bins = 4)
-```
-
-
-```rnbpxfmd
-p = gapminder %>%
-  filter(year==1977) %>%
-  ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) +
-  geom_point() +
-  theme_bw()
-
-ggplotly(p)
-```
-
-## More Drawing Here
-
-- item one
-- item two
-- item three
-- 90 degrees
-- 180 degrees
-- 270 degrees
-- 360 degrees
--->
+<p>Arguments we can add to the <code>boxplot</code> function to make our graph more informative.</p>
+<ul>
+<li>horizontal = T (draw the boxplot horizontally)</li>
+</ul>
 
 
 </section>
